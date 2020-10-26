@@ -4,15 +4,15 @@
   - Choose city/golf course 
   - Set radius 
     - Shows available tee times within the radius constraint 
-- Host Event - Tournament 
-- Choose a city 
-- Choose golf course 
-- Tournament styles 
-  - Duos
-  - 4some
-  - Scrambles 
-- Join Event in your city 
-- Dashboard of joined events/hosted events 
+  - Host Event - Tournament 
+  - Choose a city 
+  - Choose golf course 
+  - Tournament styles 
+    - Duos
+    - 4some
+    - Scrambles 
+  - Join Event in your city 
+  - Dashboard of joined events/hosted events 
 
 - Minimum MVP
   - Home screen
