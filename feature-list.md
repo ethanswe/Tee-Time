@@ -1,4 +1,4 @@
-## MVP Feature List 
+# MVP Feature List 
 
 ### 1. Hosting on Heroku
 
