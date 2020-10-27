@@ -1,5 +1,10 @@
-### Feature List 
+## MVP Feature List 
 
+### 1. Hosting on Heroku
+
+### 2. New account creation, login, and guest/demo login
+
+### 3. 
 - Feature List to Implement
   - Choose city/golf course 
   - Set radius 
