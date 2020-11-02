@@ -3,11 +3,30 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const store = new SequelizeStore({
+  db: sequelize,
+});
+
+
+app.use(
+  session({
+    secret: 'superSecret',
+    store,
+    resave: false,
+  })
+);
+store.sync();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const signupRouter = require('./routes/signup');
+
 
 const app = express();
+
+app.use(signupRouter);
 
 // view engine setup
 app.set('view engine', 'pug');
