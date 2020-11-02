@@ -1,15 +1,15 @@
 const express = require('express');
 const db = require('../db/models');
-const router = express.Router();
 const { csrfProtection, asyncHandler } = require('./utils');
+const router = express.Router();
 
 router.get('/signup',
-    // csrfProtection,
+    csrfProtection,
     asyncHandler(async (req, res) => {
         // const user = await db.User.findAll();
-        res.render('signup', { title: 'Sign Up'});
-        // res.send('hello world!');
+        res.render('signup', { title: 'Sign Up', csrfToken: req.csrfToken(), });
     })
 );
 
+// router.post('/signup'),
 module.exports = router;
