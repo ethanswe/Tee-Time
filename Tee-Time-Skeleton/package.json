@@ -9,13 +9,18 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "csurf": "^1.11.0",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "path": "^0.12.7",
     "per-env": "^1.0.2",
     "pg": "^8.4.2",
-    "pug": "2.0.4"
+    "pug": "2.0.4",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",

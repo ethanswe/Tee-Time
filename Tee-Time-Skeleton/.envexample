@@ -1,0 +1,5 @@
+PORT=8080
+DB_USERNAME=tee_time_app
+DB_PASSWORD=<your password here>
+DB_DATABASE=tee_time
+DB_HOST=localhost
