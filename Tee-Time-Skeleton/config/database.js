@@ -2,8 +2,9 @@ const {
   username,
   password,
   database,
-  host,
+  host
 } = require('./index').db;
+
 
 module.exports = {
   development: {
@@ -11,6 +12,6 @@ module.exports = {
     password,
     database,
     host,
-    dialect: 'postgres',
-  },
+    dialect: 'postgres'
+  }
 };

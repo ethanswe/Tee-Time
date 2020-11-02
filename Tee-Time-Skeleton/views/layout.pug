@@ -1,8 +1,28 @@
 doctype html
 html
+  
   head
       block head
-        title="Express Starter App"
+        title= TeeTime #{title}
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel='stylesheet' href='/stylesheets/layout.css')
+  
   body
+    header.header
+      .header__logo: a(href='/') TeeTime
+      .header__nav
+        a(href='/courses') Courses
+        a(href='/tee-times') TeeTimes
+        a(href='/login') Sign In
+        a(href='/signup') Sign Up
+      .header__banner-container
+        .header__banner-text Golfing is a great way to make new friends
+        .header__banner-button Let's Play
+    main
+
     block content
+
+
+    footer
+      .footer__github-logo
+        img(src='https://clipart.info/images/ccovers/1499794873github-logo-png.png')
