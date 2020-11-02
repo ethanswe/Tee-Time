@@ -64,11 +64,25 @@ csrfProtection,
 userValidators,
     asyncHandler(async (req, res) => {
     const {
-      email,
-      hashedPassword,
+    firstName,
+    lastName,
+    age,
+    bio,
+    city,
+    handicap,
+    email,
+    password,
     } = req.body;
 
-    const user = await db.User.create({ email, hashedPassword });
+    const user = await db.User.build({ 
+    firstName,
+    lastName,
+    age,
+    bio,
+    city,
+    handicap,
+    email,
+    password });
 
     const validatorErrors = validationResult(req);
 
