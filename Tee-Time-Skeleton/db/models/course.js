@@ -10,17 +10,39 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Course.belongsTo(models.City, { foreignKey: 'cityId' });
     }
   };
   Course.init({
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    cityId: DataTypes.INTEGER,
-    difficulty: DataTypes.INTEGER,
-    numHoles: DataTypes.INTEGER,
-    minPrice: DataTypes.NUMERIC,
-    maxPrice: DataTypes.NUMERIC
+    name: {
+      allowNull: false,
+      unique: true,
+      type: DataTypes.STRING(255),
+    },
+    description: {
+      type: DataTypes.TEXT,
+    },
+    cityId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: { model: 'Cities' }
+    },
+    difficulty: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+    },
+    numHoles: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+    },
+    minPrice: {
+      allowNull: false,
+      type: DataTypes.NUMERIC(6,2),
+    },
+    maxPrice: {
+      allowNull: false,
+      type: DataTypes.NUMERIC(6,2)
+    }
   }, {
     sequelize,
     modelName: 'Course',
