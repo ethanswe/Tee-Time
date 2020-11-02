@@ -5,9 +5,6 @@ const {
   host
 } = require('./index').db;
 
-const {db} = require('./index')
-console.log(db);
-console.log(process.env);
 
 module.exports = {
   development: {
