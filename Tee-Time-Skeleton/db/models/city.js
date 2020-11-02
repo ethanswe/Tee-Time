@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       City.hasMany(models.User, { foreignKey: 'cityId' });
       City.hasMany(models.Course, { foreignKey: 'cityId' });
-
     }
   };
   City.init({
