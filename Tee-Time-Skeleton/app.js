@@ -21,8 +21,12 @@ store.sync();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const signupRouter = require('./routes/signup');
+
 
 const app = express();
+
+app.use(signupRouter);
 
 // view engine setup
 app.set('view engine', 'pug');
