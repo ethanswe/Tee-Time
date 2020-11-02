@@ -10,19 +10,48 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      User.belongsTo(models.City, { foreignKey: 'cityId' });
     }
   };
   User.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    bio: DataTypes.TEXT,
-    username: DataTypes.STRING,
-    hashedPassword: DataTypes.STRING,
-    email: DataTypes.STRING,
-    age: DataTypes.INTEGER,
-    cityId: DataTypes.INTEGER,
-    handicap: DataTypes.INTEGER
+    firstName: {
+      allowNull: false,
+      type: DataTypes.STRING(50),
+    },
+    lastName: {
+      allowNull: false,
+      type: DataTypes.STRING(50),
+    },
+    bio: {
+      type: DataTypes.TEXT,
+    },
+    username: {
+      allowNull: false,
+      unique: true,
+      type: DataTypes.STRING(50),
+    },
+    hashedPassword: {
+      allowNull: false,
+      type: DataTypes.STRING.BINARY,
+    },
+    email: {
+      allowNull: false,
+      unique: true,
+      type: DataTypes.STRING,
+    },
+    age: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+    },
+    cityId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: { model: 'Cities' }
+    },
+    handicap: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+    },
   }, {
     sequelize,
     modelName: 'User',
