@@ -6,7 +6,7 @@ block content
   +validationErrorSummary(errors)
   form(action='/user/login' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
-    +field('Email Address', 'emailAddress', emailAddress)
+    +field('Username', 'username', username)
     +field('Password', 'password', null, 'password')
     div(class='py-4')
       button(type='submit' class='btn btn-primary') Login
