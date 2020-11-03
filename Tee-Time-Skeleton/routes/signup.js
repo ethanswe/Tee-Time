@@ -94,8 +94,8 @@ userValidators,
       res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      res.render('user-register', {
-        title: 'Register',
+      res.render('error', {
+        title: 'Error',
         user,
         errors,
         csrfToken: req.csrfToken(),

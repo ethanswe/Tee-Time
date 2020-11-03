@@ -5,14 +5,17 @@ block content
   h3 1000s of strangers across the world have come together to enjoy the sport of golf. Create an account and you'll be on your way to being a part of the community.
   form(action='/signup' method='POST')
     input(type='hidden' name='_csrf' value=csrfToken)
-    input(type='text' name='firstName' placeholder='First Name')
-    input(type='text' name='lastName' placeholder='Last Name')
-    input(type='text' name='age' placeholder='Age')
-    input(type='text' name='bio' placeholder='Bio')
-    input(type='text' name='city' placeholder='City')
-    input(type='integer' name='handicap' placeholder='Handicap')
-    input(type='text' name='user' placeholder='Username')
-    input(type='text' name='email' placeholder='Email Address')
+    input(type='text' name='firstName' placeholder='First Name' value=user.firstName)
+    input(type='text' name='lastName' placeholder='Last Name' value=user.lastName)
+    input(type='number' name='age' placeholder='Age' value=user.age)
+    textarea(name='bio' placeholder='Bio' value=user.bio)
+    //- select(name='cityId')
+    //-   each city in cities
+    //-     option(value="city.id") city.name
+    input(type='number' name='handicap' placeholder='Handicap' value=user.handicap)
+    input(type='text' name='user' placeholder='Username' value=user.username)
+    input(type='email' name='email' placeholder='Email Address')
     input(type='password' name='hashedPassword' placeholder='Password')
+    input(type='password' name ='hashedPassword' placeholder = 'Confirm Password')
     div(class='submit')
       button(type='submit' class='submit-button') Submit
