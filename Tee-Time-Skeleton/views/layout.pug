@@ -18,10 +18,18 @@ html
           div(class="header-nav__link-courses") Courses
         a(href='/tee-times' class='header-nav__link')
           div(class="header-nav__link-tee-times") TeeTimes
-        a(href='/login' class='header-nav__link')
-          div(class='header-nav__link-sign-in') Sign In
-        a(href='/signup' class='header-nav__link')
-          div(class="header-nav__link-sign-up") Sign Up
+
+        if authenticated
+          a(href=`/users/${user.id}` class='header-nav__link')
+            div(class='header-nav__link-profile') Profile
+          a(href='/logout' class='header-nav__link')
+            div(class="header-nav__link-sign-out") Sign Out
+        else
+          a(href='/login' class='header-nav__link')
+            div(class='header-nav__link-sign-in') Sign In
+          a(href='/signup' class='header-nav__link')
+            div(class="header-nav__link-sign-up") Sign Up
+
     .banner__container
       .banner__text
         h1 Golfing is a great way to make new friends
