@@ -8,9 +8,10 @@ const bcrypt = require('bcryptjs');
 router.get('/signup',
     csrfProtection,
     asyncHandler(async (req, res) => {
-        // const user = await db.User.findAll();
-        const user = { };
-        res.render('signup', { title: 'Sign Up', user, csrfToken: req.csrfToken(), });
+        const user = {};
+        console.log(req.session);
+        const cities = await db.City.findAll({ order: ['name'] })
+        res.render('signup', { title: 'Sign Up', user, cities, csrfToken: req.csrfToken(), });
     })
 );
 
@@ -69,19 +70,21 @@ userValidators,
     lastName,
     age,
     bio,
-    city,
+    cityId,
     handicap,
+    username,
     email,
     password,
     } = req.body;
-    console.log(firstName, email);
+    console.log();
     const user = await db.User.build({ 
     firstName,
     lastName,
     age,
     bio,
-    city,
+    cityId,
     handicap,
+    username,
     email,
     password });
 

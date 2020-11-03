@@ -9,9 +9,9 @@ block content
     input(type='text' name='lastName' placeholder='Last Name' value=user.lastName)
     input(type='number' name='age' placeholder='Age' value=user.age)
     textarea(name='bio' placeholder='Bio' value=user.bio)
-    //- select(name='cityId')
-    //-   each city in cities
-    //-     option(value="city.id") city.name
+    select(name='cityId')
+      each city in cities
+        option(value=city.id)= city.name
     input(type='number' name='handicap' placeholder='Handicap' value=user.handicap)
     input(type='text' name='username' placeholder='Username' value=user.username)
     input(type='email' name='email' placeholder='Email Address')
