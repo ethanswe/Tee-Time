@@ -9,11 +9,11 @@ router.get('/signup',
     csrfProtection,
     asyncHandler(async (req, res) => {
         const user = {};
-        console.log(req.session);
         const cities = await db.City.findAll({ order: ['name'] })
         res.render('signup', { title: 'Sign Up', user, cities, csrfToken: req.csrfToken(), });
     })
 );
+
 
 const userValidators = [
   check('firstName')
@@ -61,11 +61,13 @@ const userValidators = [
     }),
 ];
 
+
 router.post('/signup', 
-csrfProtection,
-userValidators,
-    asyncHandler(async (req, res) => {
-    const {
+  userValidators,
+  csrfProtection,
+  asyncHandler(async (req, res) => {
+
+  const {
     firstName,
     lastName,
     age,
@@ -75,9 +77,9 @@ userValidators,
     username,
     email,
     password,
-    } = req.body;
-    console.log();
-    const user = await db.User.build({ 
+  } = req.body;
+
+  const user = await db.User.build({ 
     firstName,
     lastName,
     age,
@@ -86,24 +88,30 @@ userValidators,
     handicap,
     username,
     email,
-    password });
+    password 
+  });
 
-    const validatorErrors = validationResult(req);
-    console.log(validatorErrors);
-    if (validatorErrors.isEmpty()) {
-      const hashedPassword = await bcrypt.hash(password, 10);
-      user.hashedPassword = hashedPassword;
-      await user.save();
-      loginUser(req, res, user);
-      res.redirect('/');
-    } else {
-      const errors = validatorErrors.array().map((error) => error.msg);
-      res.render('error', {
-        title: 'Error',
-        user,
-        errors,
-        csrfToken: req.csrfToken(),
-      });
-    }
-  }));
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    user.hashedPassword = hashedPassword;
+    await user.save();
+    // loginUser(req, res, user);
+    res.redirect(`/users/${user.id}`);
+    
+  } else {
+    const cities = await db.City.findAll({ order: ['name'] })
+    const errors = validatorErrors.array().map((error) => error.msg);
+    res.render('signup', {
+      title: 'Error',
+      user,
+      errors,
+      cities,
+      csrfToken: req.csrfToken(),
+    });
+  }
+}));
+
+
 module.exports = router;

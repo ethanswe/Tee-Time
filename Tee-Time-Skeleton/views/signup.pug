@@ -3,6 +3,11 @@ extends layout.pug
 block content
   h2 Join for a tee time
   h3 1000s of strangers across the world have come together to enjoy the sport of golf. Create an account and you'll be on your way to being a part of the community.
+
+  if errors
+    each error in errors
+      .error= error
+      
   form(action='/signup' method='POST')
     input(type='hidden' name='_csrf' value=csrfToken)
     input(type='text' name='firstName' placeholder='First Name' value=user.firstName)
