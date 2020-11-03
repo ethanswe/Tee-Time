@@ -9,7 +9,8 @@ router.get('/signup',
     csrfProtection,
     asyncHandler(async (req, res) => {
         // const user = await db.User.findAll();
-        res.render('signup', { title: 'Sign Up', csrfToken: req.csrfToken(), });
+        const user = { };
+        res.render('signup', { title: 'Sign Up', user, csrfToken: req.csrfToken(), });
     })
 );
 
@@ -24,7 +25,7 @@ const userValidators = [
     .withMessage('Please provide a value for Last Name')
     .isLength({ max: 50 })
     .withMessage('Last Name must not be more than 50 characters long'),
-  check('emailAddress')
+  check('email')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Email Address')
     .isLength({ max: 255 })
@@ -32,7 +33,7 @@ const userValidators = [
     .isEmail()
     .withMessage('Email Address is not a valid email')
     .custom((value) => {
-      return db.User.findOne({ where: { emailAddress: value } })
+      return db.User.findOne({ where: { email: value } })
         .then((user) => {
           if (user) {
             return Promise.reject('The provided Email Address is already in use by another account');
@@ -73,7 +74,7 @@ userValidators,
     email,
     password,
     } = req.body;
-
+    console.log(firstName, email);
     const user = await db.User.build({ 
     firstName,
     lastName,
@@ -85,7 +86,7 @@ userValidators,
     password });
 
     const validatorErrors = validationResult(req);
-
+    console.log(validatorErrors);
     if (validatorErrors.isEmpty()) {
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
@@ -94,8 +95,8 @@ userValidators,
       res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      res.render('user-register', {
-        title: 'Register',
+      res.render('error', {
+        title: 'Error',
         user,
         errors,
         csrfToken: req.csrfToken(),
