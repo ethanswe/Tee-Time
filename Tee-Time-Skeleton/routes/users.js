@@ -19,6 +19,14 @@ router.get('/login', csrfProtection, (req, res) => {
   });
 });
 
+router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+  // if user not logged in, redirect to login page
+
+  const user = await db.User.findByPk(req.params.id);
+  res.render('users-profile', { title: `Welcome ${user.firstName}`, user })
+  // add error handling
+}));
+
 const loginValidators = [
   check('email')
     .exists({ checkFalsy: true })
