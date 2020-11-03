@@ -1,15 +1,53 @@
+* {
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+  background-color: #f5f5f5;
+  color: #464646;
+}
+
+.header-nav__container {
+  background-color: rgb(3, 71, 3);
+  font-size: 16px;
+  line-height: 30px;
+  padding: 4px;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header-nav__group {
+  display: flex;
+  justify-content: space-between;
+  width: 33%;
+  padding: 2px;
+}
+
+.header-nav__logo {
+
+}
+
+
 .footer__github-logo img {
-  width: 600px;
+  width: 100px;
 }
 
-.header__banner-container {
-
+.banner__container {
+  background-color:forestgreen;
+  padding: 32px;
 }
 
-.header__banner-text {
-
+.banner__text {
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 650px;
+  text-align: center;
 }
 
-.header__banner-image {
-  
+.banner__image {
 }
+
+a > span:hover,
+a:hover {
+  color: rgb(255, 115, 0);
+  font-weight: 700;
+}
+git add
