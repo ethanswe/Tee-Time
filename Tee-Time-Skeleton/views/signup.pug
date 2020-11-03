@@ -5,4 +5,14 @@ block content
   h3 1000s of strangers across the world have come together to enjoy the sport of golf. Create an account and you'll be on your way to being a part of the community.
   form(action='/signup' method='POST')
     input(type='hidden' name='_csrf' value=csrfToken)
-    +field('Name')
+    input(type='text' name='firstName' placeholder='First Name')
+    input(type='text' name='lastName' placeholder='Last Name')
+    input(type='text' name='age' placeholder='Age')
+    input(type='text' name='bio' placeholder='Bio')
+    input(type='text' name='city' placeholder='City')
+    input(type='integer' name='handicap' placeholder='Handicap')
+    input(type='text' name='user' placeholder='Username')
+    input(type='text' name='email' placeholder='Email Address')
+    input(type='password' name='hashedPassword' placeholder='Password')
+    div(class='submit')
+      button(type='submit' class='submit-button') Submit
