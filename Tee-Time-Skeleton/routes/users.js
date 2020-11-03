@@ -1,83 +1,20 @@
 var express = require('express');
 var router = express.Router();
 const db = require('../db/models');
-const bcrypt = require('bcryptjs');
-const { check, validationResult } = require('express-validator');
-const { loginUser, logoutUser } = require('../auth');
-const { csrfProtection, asyncHandler } = require('./utils');
-
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+const { asyncHandler } = require('./utils');
+const { restoreUser } = require('../auth')
 
 
-router.get('/login', csrfProtection, (req, res) => {
-  res.render('user-login', {
-    title: 'Login',
-    csrfToken: req.csrfToken(),
-  });
-});
-
-router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
-  // if user not logged in, redirect to login page
-
-  const user = await db.User.findByPk(req.params.id);
-  res.render('users-profile', { title: `Welcome ${user.firstName}`, user })
-  // add error handling
-}));
-
-const loginValidators = [
-  check('email')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Email Address'),
-  check('password')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Password'),
-];
-
-router.post('/login', csrfProtection, loginValidators,
-  asyncHandler(async (req, res) => {
-    const {
-      email,
-      password,
-    } = req.body;
-
-    let errors = [];
-    const validatorErrors = validationResult(req);
-
-    if (validatorErrors.isEmpty()) {
-      const user = await db.User.findOne({ where: { email }});
-
-      if(user !== null){
-          const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
-
-          if(passwordMatch){
-              loginUser(req, res, user);
-              return res.redirect(`/users/:${user.id}`);
-          }
-      }
-
-      errors.push(`Login failed for the provided email address and password`);
-    } else {
-      errors = validatorErrors.array().map((error) => error.msg);
+// GET USER PROFILE/DASHBOARD //
+router.get('/:id(\\d+)', restoreUser, asyncHandler(async(req, res) => {
+  if (res.locals.authenticated) {
+    const user = await db.User.findByPk(req.params.id);
+    if (res.locals.user.id === user.id) {
+      res.render('users-profile', { title: `Welcome ${user.firstName}`})
     }
-
-    res.render('user-login', {
-      title: 'Login',
-      email,
-      errors,
-      csrfToken: req.csrfToken(),
-    });
-  }));
-
-router.post('/logout', (req, res) => {
-    logoutUser(req, res);
-    res.redirect('/user/login');
-  });
-
-
-
+  }
+  res.redirect('/login');
+}));
 
 
 
