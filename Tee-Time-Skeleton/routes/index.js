@@ -15,6 +15,7 @@ const bcrypt = require('bcryptjs');
 // GET HOME PAGE
 router.get('/', function(req, res, next) {
   console.log(req.session);
+  console.log(res.locals);
   res.render('index', { title: 'a/A Express Skeleton Home' });
 });
 
@@ -96,12 +97,10 @@ router.post('/login',
   loginValidators,
   csrfProtection, 
   asyncHandler(async (req, res) => {
-    console.log('hello from login-post');
     const {
       email,
       password,
     } = req.body;
-    console.log('user for login', req.body);
 
     let errors = [];
     const validatorErrors = validationResult(req);
@@ -136,10 +135,17 @@ router.post('/login',
 
 
 // POST AUTHENTICATED USER LOGOUT //
-router.post('/logout', (req, res) => {
-  logoutUser(req, res);
-  res.redirect('/');
+router.get('/logout', (req, res) => {
+  // console.log('logout');
+  // console.log(req.session);
+  // logoutUser(req, res);
+  res.redirect('/logout-post');
 });
+
+router.post('/logout-post', (req, res) => {
+  logoutUser(req, res);
+  res.redirect('/')
+})
 
 
 module.exports = router;

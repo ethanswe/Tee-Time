@@ -38,9 +38,9 @@ app.use(
     saveUninitialized: false,
   })
   );
-  store.sync();
-  
-  app.use(restoreUser);
+store.sync();
+
+app.use(restoreUser);
 
 
 // ROUTING //
@@ -68,7 +68,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 
 
