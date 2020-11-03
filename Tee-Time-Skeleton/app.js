@@ -4,13 +4,12 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
+const { sequelize }  = require('./db/models')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const { sequelize }  = require('./db/models');
 const store = new SequelizeStore({
   db: sequelize,
 });
-
-
 
 
 const indexRouter = require('./routes/index');
@@ -19,7 +18,6 @@ const signupRouter = require('./routes/signup');
 const utilsRouter = require('./routes/utils');
 // const csrf = require('csurf');
 const app = express();
-
 
 // view engine setup
 app.set('view engine', 'pug');
@@ -30,6 +28,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(csrf({ cookie: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(
+  session({
+    secret: 'superSecret',
+    store,
+    resave: false,
+  })
+);
+store.sync();
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use(signupRouter);
