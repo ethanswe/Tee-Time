@@ -1,28 +1,37 @@
 doctype html
 html
-  
+
   head
       block head
         title= TeeTime
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/layout.css')
-  
-  body
-    header.header
-      .header__logo: a(href='/') TeeTime
-      .header__nav
-        a(href='/courses') Courses
-        a(href='/tee-times') TeeTimes
-        a(href='/login') Sign In
-        a(href='/signup') Sign Up
-      .header__banner-container
-        .header__banner-text Golfing is a great way to make new friends
-        .header__banner-button Let's Play
-    main
+        
 
+  body
+    .header-nav__container
+      span(class='header-nav__logo')
+        a(href='/' class='header-nav__link')
+          div(class="header-nav__link-home") TeeTime
+      span(class='header-nav__group')
+        a(href='/courses' class='header-nav__link')
+          div(class="header-nav__link-courses") Courses
+        a(href='/tee-times' class='header-nav__link')
+          div(class="header-nav__link-tee-times") TeeTimes
+        a(href='/login' class='header-nav__link')
+          div(class='header-nav__link-sign-in') Sign In
+        a(href='/signup' class='header-nav__link')
+          div(class="header-nav__link-sign-up") Sign Up
+    .banner__container
+      .banner__text
+        h1 Golfing is a great way to make new friends
+          div
+          span but you wont find that out playing alone.
+        a(href='/' class="header-banner__button-link") Let's Play
+    main
     block content
 
 
     footer
-      //- .footer__github-logo
-      //-   img(src='https://clipart.info/images/ccovers/1499794873github-logo-png.png')
+      .footer__github-logo
+        img(src='https://clipart.info/images/ccovers/1499794873github-logo-png.png')
