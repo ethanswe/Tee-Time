@@ -6,18 +6,18 @@ const logger = require('morgan');
 const session = require('express-session');
 const { sequelize }  = require('./db/models')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const { sequelize }  = require('./db/models');
 const store = new SequelizeStore({
   db: sequelize,
 });
 
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const signupRouter = require('./routes/signup');
-
-
+const utilsRouter = require('./routes/utils');
+// const csrf = require('csurf');
 const app = express();
-
-
 
 // view engine setup
 app.set('view engine', 'pug');
@@ -26,7 +26,9 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// app.use(csrf({ cookie: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(
   session({
     secret: 'superSecret',
@@ -35,6 +37,7 @@ app.use(
   })
 );
 store.sync();
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -48,6 +51,7 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
+  console.error(err);
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
