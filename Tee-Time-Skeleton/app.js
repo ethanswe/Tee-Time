@@ -16,7 +16,6 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const signupRouter = require('./routes/signup');
 const utilsRouter = require('./routes/utils');
-// const csrf = require('csurf');
 const app = express();
 
 // view engine setup
@@ -26,7 +25,6 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(csrf({ cookie: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(
