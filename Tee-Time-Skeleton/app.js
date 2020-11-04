@@ -47,7 +47,7 @@ app.use(restoreUser);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/courses', coursesRouter);
-app.use('/tee-times', teeTimesRouter)
+app.use('/tee-times', teeTimesRouter);
 
 
 

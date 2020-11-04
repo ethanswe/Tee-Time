@@ -12,10 +12,9 @@ const {
 const bcrypt = require('bcryptjs');
 
 
-// GET HOME PAGE
+// GET HOME PAGE //
 router.get('/', function(req, res, next) {
-  console.log(req.session);
-  console.log(res.locals);
+
   res.render('index', { title: 'a/A Express Skeleton Home' });
 });
 
@@ -66,6 +65,7 @@ router.post('/signup',
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
       await user.save();
+      console.log(user);
       loginUser(req, res, user);
       res.redirect(`/users/${user.id}`);
 
@@ -109,13 +109,12 @@ router.post('/login',
 
     if (validatorErrors.isEmpty()) {
       const user = await db.User.findOne({ where: { email } });
-      console.log('user exists:', user);
-      if (user !== null) {
+
+      if (user !== null) {        
         const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
-        console.log('passwordMatch:', passwordMatch);
+
         if (passwordMatch) {
           loginUser(req, res, user);
-          console.log('user login successful', req.session);
           return res.redirect(`/users/${user.id}`);
         }
       }
@@ -136,16 +135,10 @@ router.post('/login',
 
 // POST AUTHENTICATED USER LOGOUT //
 router.get('/logout', (req, res) => {
-  // console.log('logout');
-  // console.log(req.session);
-  // logoutUser(req, res);
-  res.redirect('/logout-post');
-});
-
-router.post('/logout-post', (req, res) => {
   logoutUser(req, res);
-  res.redirect('/')
+  res.render('index', { title: 'a/A Express Skeleton Home' });
 })
+
 
 
 module.exports = router;
