@@ -14,7 +14,6 @@ const bcrypt = require('bcryptjs');
 
 // GET HOME PAGE //
 router.get('/', function(req, res, next) {
-
   res.render('index', { title: 'a/A Express Skeleton Home' });
 });
 
@@ -105,8 +104,6 @@ router.post('/login',
     let errors = [];
     const validatorErrors = validationResult(req);
 
-
-
     if (validatorErrors.isEmpty()) {
       const user = await db.User.findOne({ where: { email } });
 
@@ -115,7 +112,7 @@ router.post('/login',
 
         if (passwordMatch) {
           loginUser(req, res, user);
-          return res.redirect(`/users/${user.id}`);
+          return;
         }
       }
 
@@ -134,9 +131,9 @@ router.post('/login',
 
 
 // POST AUTHENTICATED USER LOGOUT //
-router.get('/logout', (req, res) => {
+router.post('/logout', (req, res) => {
   logoutUser(req, res);
-  res.render('index', { title: 'a/A Express Skeleton Home' });
+  res.redirect('/');
 })
 
 

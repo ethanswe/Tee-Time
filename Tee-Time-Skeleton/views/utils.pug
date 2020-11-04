@@ -10,15 +10,15 @@ mixin validationErrorSummary(errors)
 mixin field(labelText, fieldName, fieldValue, fieldType = 'text')
   div(class='form-group')
     label(for=fieldName)= labelText
-    input(type='text' id=fieldName name=fieldName value=fieldValue class='form-control')
+    input(type=fieldType id=fieldName name=fieldName value=fieldValue class='form-control')
 
 
 mixin banner(headline, subtext, link)
-  .banner__container
-    .banner__container--underlay
+  .banner
+    .banner__container
       .banner__text
         h1= headline
         br
         div= subtext
         br
-        a(href='/' class="header-banner__button-link")= link
+        button(href='/' class="header-banner__button-link")= link

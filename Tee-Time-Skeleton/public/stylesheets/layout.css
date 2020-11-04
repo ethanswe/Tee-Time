@@ -46,3 +46,70 @@ footer {
   text-align: center;
   color: white;
 }
+
+
+h1 {
+  color: #fafafa;
+}
+button {
+  background-color: goldenrod;
+  border-color: goldenrod;
+  border: 2px solid goldenrod;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 10px;
+  font-size: 18px;
+  width: 50%;
+  display: inline;
+  padding: 1em 1.5em;
+}
+
+button:hover {
+  background-color: rgb(255, 162, 0);
+  border-color: rgb(255, 162, 0);
+  border: 2px solid rgb(255, 162, 0);
+  box-shadow: 0 0 3px 2px rgb(255, 162, 0);
+  color: white;
+  text-transform: uppercase;
+}
+.banner {
+  /* background-image: linear-gradient(
+      rgba(34, 139, 34, 0.3),
+      rgba(34, 139, 34, 0.3)
+    ),
+    url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg); */
+  padding: 32px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto;
+  height: 500px;
+}
+
+.banner__text {
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 650px;
+  text-align: center;
+}
+.banner__text > h1 {
+  font-weight: 600;
+  margin-bottom: 9px;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.banner__text-subtext {
+  margin-bottom: 36px;
+  display: block;
+  font-size: 0.65em;
+  font-weight: 400;
+}
+
+.banner__container {
+  display: flex;
+  padding: 110px 0;
+  align-items: center;
+  flex-direction: row;
+  background-color: rgba(34, 139, 34, 0);
+}
