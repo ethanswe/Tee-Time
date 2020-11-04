@@ -9,14 +9,12 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  .banner
-    .banner__container
-        .banner__text
-          h1 Golfing is a great way to make new friends
-            div
-            span(class='banner__text-subtext') but you wont find that out playing alone.
-            a(href='/' class="header-banner__button-link")
-              button(type ='submit' class="header-banner__button-link") Let's Play
+  +banner(
+    "Golfing is a great way to make new friends",
+    "but you wont find that out playing alone.",
+    "/signup",
+    "Let's Play"
+  )
   .page
     .page__container
       .page__text

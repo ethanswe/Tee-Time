@@ -13,12 +13,13 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text')
     input(type=fieldType id=fieldName name=fieldName value=fieldValue class='form-control')
 
 
-mixin banner(headline, subtext, link)
+mixin banner(headline, subtext, href, link)
   .banner
     .banner__container
       .banner__text
         h1= headline
         br
-        div= subtext
+        div(class='banner__text-subtext')= subtext
         br
-        button(href='/' class="header-banner__button-link")= link
+        a(href=href class="header-banner__button-link")
+            button(type ='submit' class="header-banner__button-link")= link
