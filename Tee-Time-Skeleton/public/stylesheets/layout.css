@@ -28,6 +28,36 @@
   font-size: 40px;
 }
 
+footer {
+  overflow: auto;
+  padding: 4px 0;
+  display: block;
+}
+
+.footer-container {
+  max-width: 1020px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding: 0 1em;
+}
+.footer-container__text {
+  float: left;
+  display: block;
+  /* margin-right: 2.3576520234%; */
+  width: 82.9403913294%;
+  margin-left: 8.5298043353%;
+}
+
+.footer-container__links {
+  text-align: left;
+}
+
+.footer-container__links a {
+  display: block;
+  padding: 2px;
+}
+
 .footer__github-logo img {
   width: 100px;
 }
