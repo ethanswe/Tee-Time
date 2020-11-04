@@ -32,15 +32,13 @@
   width: 100px;
 }
 
-.banner__container {
-  background-color:rgb(34, 139, 34);
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+a > span:hover,
+a:hover {
+  color: rgb(255, 115, 0);
+  font-weight: 700;
 }
 
-.banner__text {
+footer {
   flex-direction: column;
   margin: 0 auto;
   max-width: 650px;
@@ -48,38 +46,4 @@
   color: white;
 }
 
-.banner__text h1 {
-  color: white;
-  font-size: 40px;
-}
 
-.banner__text div {
-  color: white;
-  font-size: 20px;
-}
-
-.banner__text a {
-  border: 2px solid rgb(34, 139, 34);
-  padding: 7px 12px;
-  border-radius: 4px;
-}
-
-.banner a:hover {
-  background-color: forestgreen;
-}
-
-.banner__container--underlay {
-  height: 500px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url('https://thehighlandsgc.com/wp-content/uploads/2020/03/highlandshomeheader1-1500x630.jpg');
-  opacity: 0.4;
-}
-
-a > span:hover,
-a:hover {
-  color: forestgreen;
-  font-weight: 700;
-}
