@@ -1,11 +1,18 @@
 extends layout.pug
 
+include utils.pug
+
 append head
   link(rel='stylesheet' href='/stylesheets/courses-splash.css')
 
 block content
+  +banner(
+    'Play at any one of our fine courses.',
+    null,
+    'See upcoming TeeTimes'
+  )
+
   main
-  h1 #{title}
   - var n = 0;
     each course in courses
       if n % 2
@@ -15,7 +22,7 @@ block content
           .course-container__text.course-container__even
             a(href=`/courses/${course.id}` class='course__name') #{course.name}
             br
-            .course__location Location: #{course.cityId}
+            .course__location Location: #{course.City.name}
             br
             .course__difficulty Difficulty: #{course.difficulty}
           - n -= 1
@@ -24,7 +31,7 @@ block content
           .course-container__text.course-container__odd
             a(href=`/courses/${course.id}` class='course__name') #{course.name}
             br
-            .course__location Location: #{course.cityId}
+            .course__location Location: #{course.City.name}
             br
             .course__difficulty Difficulty: #{course.difficulty}
           .course-container__img.image-cropper
