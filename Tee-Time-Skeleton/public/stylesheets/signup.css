@@ -1,0 +1,62 @@
+.form-container {
+  max-width: 550px;
+  margin: 0 auto;
+  /* background-color: forestgreen; */
+
+}
+
+.signup__form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 25px 40px;
+  background-color: rgba(26, 167, 26, 0);
+}
+
+form input,
+textarea,
+select {
+  margin: 5px;
+  height: 45px;
+  border-radius: 7px;
+  border: 2px solid black;
+  background-color: rgb(255, 235, 165);
+}
+
+form.submit {
+  margin: 10px auto;
+}
+
+form > div {
+  align-self: center;
+  justify-self: center;
+}
+
+.banner {
+  background-image: linear-gradient(
+      rgba(52, 229, 241, 0.25),
+      rgba(52, 229, 241, 0.25)
+    ),
+    url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg);
+}
+
+.header-banner__button-link {
+  visibility: hidden;
+}
+
+.banner__text div {
+  max-width: 400px;
+  align-self: center;
+  justify-self: center;
+}
+
+.error-container {
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  left: 65px;
+  text-align: left;
+  line-height: 30px;;
+}
