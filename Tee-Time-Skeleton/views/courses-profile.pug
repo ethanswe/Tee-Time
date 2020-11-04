@@ -10,6 +10,7 @@ block content
   +banner(
     `${course.name}`,
     null,
+    `/tee-times/create`,
     "Create TeeTime"
   )
   .course-profile-container
@@ -23,7 +24,6 @@ block content
       .course-profile-difficulty
         h3 Course Difficulty: #{course.difficulty}
       .course-profile-price-range
-        h3 Price Range: $#{course.minPrice}-$#{course.maxPrice} 
+        h3 Price Range: $#{course.minPrice}-$#{course.maxPrice}
     .course-profile-button
       button Create Event
-  

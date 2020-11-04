@@ -5,15 +5,13 @@
   align-items: center;
 }
 
-/* .course-container__even {
-  border-bottom: 2px solid black;
-  border-right: 2px solid black
+.banner {
+  background-image: linear-gradient(
+      rgba(34, 139, 34, 0.3),
+      rgba(34, 139, 34, 0.3)
+    ),
+    url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg);
 }
-
-.course-container__odd {
-  border-top: 2px solid black;
-  border-left: 2px solid black;
-} */
 
 .course-container__img.image-cropper {
   height: 300px;
