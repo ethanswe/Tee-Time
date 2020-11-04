@@ -46,18 +46,4 @@ footer {
   color: white;
 }
 
-.banner__text h1 {
-  color: white;
-  font-size: 40px;
-}
 
-.banner__text div {
-  color: white;
-  font-size: 20px;
-}
-
-.banner__text a {
-  border: 2px solid rgb(34, 139, 34);
-  padding: 7px 12px;
-  border-radius: 4px;
-}
