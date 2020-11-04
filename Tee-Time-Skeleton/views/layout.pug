@@ -8,7 +8,7 @@ html
         link(rel='stylesheet' href='/stylesheets/layout.css')
         link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet")
         link(href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet")
-
+        script(src="/javascripts/index.js" type="module" defer)
 
   body
     .header-nav__container
@@ -24,7 +24,7 @@ html
         if authenticated
           a(href=`/users/${user.id}` class='header-nav__link')
             div(class='header-nav__link-profile') Profile
-          a(href='/logout' class='header-nav__link')
+          a(href='/logout' class='header-nav__link logout-button')
             div(class="header-nav__link-sign-out") Sign Out
         else
           a(href='/login' class='header-nav__link')
