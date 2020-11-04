@@ -14,11 +14,11 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text')
 
 
 mixin banner(headline, subtext, link)
-  .banner__container
-    .banner__container--underlay
+  .banner
+    .banner__container
       .banner__text
         h1= headline
         br
         div= subtext
         br
-        a(href='/' class="header-banner__button-link")= link
+        button(href='/' class="header-banner__button-link")= link
