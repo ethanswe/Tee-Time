@@ -36,6 +36,7 @@ a > span:hover,
 a:hover {
   color: rgb(255, 115, 0);
   font-weight: 700;
+  text-decoration: none;
 }
 
 footer {
@@ -45,5 +46,3 @@ footer {
   text-align: center;
   color: white;
 }
-
-
