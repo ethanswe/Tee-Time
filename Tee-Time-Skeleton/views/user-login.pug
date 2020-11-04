@@ -13,12 +13,14 @@ block content
     null
   )
 
+  br
   .error-container
     if errors
       ul
       each error in errors
         li.error= error
 
+  br
   .form-container
     form(action='/login' method='post' class='signup__form')
       input(type='hidden' name='_csrf' value=csrfToken)
