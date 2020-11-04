@@ -1,0 +1,74 @@
+.course-profile-container {
+  font-family: 'Architects Daughter', cursive;
+  background-color: grey;
+  color: white;
+  text-align: center;
+}
+
+.course-grid-container {
+    display: grid;
+    grid-template-areas: 
+    "text text img"
+    "info . button"
+    ;
+    grid-template-columns: 25% 25% 50%;
+    grid-template-rows: 85% 15%;
+    justify-items: center;
+    align-items: center;
+    width: 1200px;
+    margin: 100px auto;
+}
+
+.course-profile-description-container {
+  grid-area: text;
+  flex-direction: column;
+  /* margin: 0 auto; */
+  max-width: 650px;
+  /* margin-top: 10px; */
+  text-align: left;
+  color: black;
+}
+
+.course-profile-info-div {
+    grid-area: info;
+    background-color: white;
+    border: solid black;
+    height: 50px;
+    width: 300px;
+    margin: 20px;
+    padding: 3px;
+    bottom: 45%;
+    left: 1%;
+    /* position: absolute; */
+}
+
+.course-profile-picture {
+    grid-area: img;
+    /* position: absolute; */
+    right: 10px;
+     /* width: auto;
+    height: auto; */
+    max-width: 75%;
+    max-height: 400px; 
+    /* height: 500px; */
+    /* margin-right: 10px; */
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    margin: 0 auto;
+
+}
+
+.course-profile-picture img{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    /* object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.course-profile-button{
+    grid-area: button;
+}
