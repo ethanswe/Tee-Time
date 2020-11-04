@@ -30,24 +30,15 @@
   width: 100px;
 }
 
-.banner__container {
-  background-color:forestgreen;
-  padding: 32px;
-}
-
-.banner__text {
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 650px;
-  text-align: center;
-}
-
-.banner__image {
-}
-
 a > span:hover,
 a:hover {
   color: rgb(255, 115, 0);
   font-weight: 700;
 }
-git add
+
+footer {
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 650px;
+  text-align: center;
+}
