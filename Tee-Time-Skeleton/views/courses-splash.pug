@@ -4,7 +4,7 @@ include utils.pug
 
 append head
   link(rel='stylesheet' href='/stylesheets/courses-splash.css')
-
+  //- link(rel='img' href='/public/images/courses')
 block content
   +banner(
     'Play at any one of our fine courses.',
@@ -22,6 +22,8 @@ block content
         .course-container
           .course-container__img.image-cropper
             img(src='https://dtt3egpp7rvvz.cloudfront.net/content/uploads/2018/04/16151641/crans-sur-sierre-e1523884629576.jpg')
+            //- img(src=`/public/images/courses/${course.imgPath}`) 
+            //- a(href=`/public/images/courses/${course.imgPath}`) #{course.imgPath}
           .course-container__text.course-container__even
             a(href=`/courses/${course.id}` class='course__name') #{course.name}
             br
