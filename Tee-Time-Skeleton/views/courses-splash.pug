@@ -1,7 +1,39 @@
 extends layout.pug
 
+include utils.pug
+
+append head
+  link(rel='stylesheet' href='/stylesheets/courses-splash.css')
+
 block content
-  h2= title
-  ul
+  +banner(
+    'Play at any one of our fine courses.',
+    null,
+    'See upcoming TeeTimes'
+  )
+
+  main
+  - var n = 0;
     each course in courses
-      li= course
+      if n % 2
+        .course-container
+          .course-container__img.image-cropper
+            img(src='https://dtt3egpp7rvvz.cloudfront.net/content/uploads/2018/04/16151641/crans-sur-sierre-e1523884629576.jpg')
+          .course-container__text.course-container__even
+            a(href=`/courses/${course.id}` class='course__name') #{course.name}
+            br
+            .course__location Location: #{course.City.name}
+            br
+            .course__difficulty Difficulty: #{course.difficulty}
+          - n -= 1
+      else
+        .course-container
+          .course-container__text.course-container__odd
+            a(href=`/courses/${course.id}` class='course__name') #{course.name}
+            br
+            .course__location Location: #{course.City.name}
+            br
+            .course__difficulty Difficulty: #{course.difficulty}
+          .course-container__img.image-cropper
+            img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_1iyvXxBAAwcp63dsaWlzRVCV_2eFcjT-7Q&usqp=CAU')
+          - n += 1
