@@ -24,6 +24,10 @@
   padding: 2px;
 }
 
+.header-nav__link > div {
+  font-size: 18px;
+}
+
 .header-nav__logo > a > div {
   font-family: 'Architects Daughter', cursive;
   font-size: 40px;
