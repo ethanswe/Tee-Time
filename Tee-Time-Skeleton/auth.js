@@ -1,10 +1,13 @@
 const db = require('./db/models');
 
 
-const loginUser = (req, res, user) => {
+const loginUser = async (req, res, user) => {
   req.session.auth = {
     userId: user.id,
   };
+  req.session.save((err) => {
+    return res.redirect(`/users/${user.id}`);
+  });
 };
 
 
@@ -19,6 +22,7 @@ const logoutUser = (req, res) => {
 const restoreUser = async (req, res, next) => {
   if (req.session.auth) {
     const { userId } = req.session.auth;
+    console.log('finding user', userId);
     try {
       const user = await db.User.findByPk(userId);
       if (user) {
@@ -32,6 +36,7 @@ const restoreUser = async (req, res, next) => {
     }
 
   } else {
+    console.log('no auth');
     res.locals.authenticated = false;
     next();
   }
