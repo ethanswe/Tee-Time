@@ -6,6 +6,8 @@ html
         title= TeeTime
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/layout.css')
+        link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet")
 
 
   body
@@ -18,11 +20,18 @@ html
           div(class="header-nav__link-courses") Courses
         a(href='/tee-times' class='header-nav__link')
           div(class="header-nav__link-tee-times") TeeTimes
-        a(href='/login' class='header-nav__link')
-          div(class='header-nav__link-sign-in') Sign In
-        a(href='/signup' class='header-nav__link')
-          div(class="header-nav__link-sign-up") Sign Up
-    main
+        if authenticated
+          a(href=`/users/${user.id}` class='header-nav__link')
+            div(class='header-nav__link-profile') Profile
+          a(href='/logout' class='header-nav__link')
+            div(class="header-nav__link-sign-out") Sign Out
+        else
+          a(href='/login' class='header-nav__link')
+            div(class='header-nav__link-sign-in') Sign In
+          a(href='/signup' class='header-nav__link')
+            div(class="header-nav__link-sign-up") Sign Up
+
+
     block content
 
 

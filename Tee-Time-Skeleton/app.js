@@ -12,13 +12,14 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const { sequelize }  = require('./db/models');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const signupRouter = require('./routes/signup');
-const utilsRouter = require('./routes/utils');
-const coursesRouter = require('./routes/courses')
+const coursesRouter = require('./routes/courses');
+const teeTimesRouter = require('./routes/tee-times')
+const { restoreUser } = require('./auth')
 
 // INITIALIZE APPLICATION OBJECT //
-// DEFINE APP-WIDE CONFIG/MIDDLEWARE //
 const app = express();
+
+// DEFINE APP-WIDE CONFIG/MIDDLEWARE //
 app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
@@ -36,14 +37,17 @@ app.use(
     resave: false,
     saveUninitialized: false,
   })
-);
+  );
 store.sync();
+
+app.use(restoreUser);
+
 
 // ROUTING //
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/courses', coursesRouter)
-app.use(signupRouter);
+app.use('/courses', coursesRouter);
+app.use('/tee-times', teeTimesRouter);
 
 
 
@@ -64,7 +68,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 
 

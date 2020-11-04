@@ -13,7 +13,7 @@ module.exports = {
       { name: 'Portland', createdAt: new Date(), updatedAt: new Date },
       { name: 'Dover', createdAt: new Date(), updatedAt: new Date },
       { name: 'Atlanta', createdAt: new Date(), updatedAt: new Date },
-      { name: 'Houtson', createdAt: new Date(), updatedAt: new Date },
+      { name: 'Houston', createdAt: new Date(), updatedAt: new Date },
     ]
 
     await queryInterface.bulkInsert('Cities', seedData)

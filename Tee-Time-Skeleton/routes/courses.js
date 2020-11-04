@@ -6,9 +6,11 @@ const { asyncHandler } = require('./utils')
 
 
 router.get('/', asyncHandler(async(req, res) => {
-  const courses = await db.Course.findAll();
+  const courses = await db.Course.findAll({
+    include: db.City
+  });
 
-  res.render('courses-splash', { title: 'Courses', courses})
+  res.render('courses-splash', { title: 'Courses', courses })
 }))
 
 

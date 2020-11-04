@@ -1,5 +1,5 @@
 * {
-  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: #f5f5f5;
   color: #464646;
 }
@@ -8,10 +8,12 @@
   background-color: rgb(3, 71, 3);
   font-size: 16px;
   line-height: 30px;
+  height: 80px;
   padding: 4px;
   color: white;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .header-nav__group {
@@ -21,10 +23,10 @@
   padding: 2px;
 }
 
-.header-nav__logo {
-
+.header-nav__logo > a > div {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 40px;
 }
-
 
 .footer__github-logo img {
   width: 100px;
@@ -41,4 +43,21 @@ footer {
   margin: 0 auto;
   max-width: 650px;
   text-align: center;
+  color: white;
+}
+
+.banner__text h1 {
+  color: white;
+  font-size: 40px;
+}
+
+.banner__text div {
+  color: white;
+  font-size: 20px;
+}
+
+.banner__text a {
+  border: 2px solid rgb(34, 139, 34);
+  padding: 7px 12px;
+  border-radius: 4px;
 }
