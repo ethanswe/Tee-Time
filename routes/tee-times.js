@@ -10,7 +10,7 @@ router.get('/', asyncHandler(async (req, res) => {
   res.render('tee-times', { title: 'TeeTimes', teeTimes });
 }));
 
- 
+
 // GET CREATE TEETIME FORM //
 router.get('/create', requireAuth, (req, res) => {
   const cities = db.City.findAll({ order: ['name'] });
@@ -20,10 +20,28 @@ router.get('/create', requireAuth, (req, res) => {
   res.render('tee-times-create', { title: 'Create a Tee Time', })
 })
 
+router.get('/', asyncHandler(async(req, res) => {
+  const {  }
+  const filteredCourses = await db.Course.findAll({
+    where: {
+      minPrice: {
+        [Op.gte]: amount
+      },
+      maxPrice: {
+        [Op.lte]: amount
+      }
+    }
+  });
+    res.render('tee-times', {
+      filteredCourses,
+      csrfToken: req.csrfToken(),
+    })
+}));
+
 
 // POST NEW TEETIME //
 router.post('/', requireAuth, (req, res) => {
-  
+
 })
 
 router.delete('/:id(\\d+)', requireAuth, (req, res) => {
