@@ -25,6 +25,17 @@ block content
     br
     .form-container
       form(action='/tee-times' method='post' class='tee-times-create__form')
+        input(type='hidden' name='_csrf' value=csrfToken)
+        select(name='courseId' value=teeTime.courseId)
+          option(value='') -- please select a course --
+          each course in courses
+            option(value=course.id)= course.name
+
+        select(name='playStyleId' value=teeTime.playStyleId)
+          option(value='') -- please select a play style --
+          each playStyle in playStyles
+            option(value=playStyle.id)= playStyle.name
+
         .form-group-1
           label(for='date') Date:
           input(type='number' id='date' name='month' placeholder='MM' value=teeTime.month)
@@ -44,15 +55,6 @@ block content
         //- select.city-selector(name='cityId')
         //-   each city in cities
         //-     option(value=city.id)= city.name
-        select(name='courseId' value=teeTime.courseId)
-          option(value='') -- please select a course --
-          each course in courses
-            option(value=course.id)= course.name
-
-        select(name='playStyleId' value=teeTime.playStyleId)
-          option(value='') -- please select a play style --
-          each playStyle in playStyles
-            option(value=playStyle.id)= playStyle.name
 
         input(type='number' name='numPlayers' placeholder='How many players?' value=teeTime.numPlayers)
 
