@@ -6,7 +6,13 @@ const { asyncHandler } = require('./utils');
 
 // GET TEETIMES SPLASH PAGE //
 router.get('/', asyncHandler(async (req, res) => {
-  const teeTimes = await db.TeeTime.findAll({ order: ['dateTime'] });
+  const teeTimes = await db.TeeTime.findAll({
+    order: ['dateTime'],
+    include: [db.Course, db.PlayStyle, db.User, {
+      model: db.Course,
+      include: db.City
+    }]
+  });
   res.render('tee-times', { title: 'TeeTimes', teeTimes });
 }));
 
@@ -21,7 +27,7 @@ router.get('/create', asyncHandler(async (req, res) => {
 }))
 
 router.get('/', asyncHandler(async(req, res) => {
-  const {  }
+  // const {  }
   const filteredCourses = await db.Course.findAll({
     where: {
       minPrice: {
