@@ -92,7 +92,7 @@
 .user-profile-email h2,
 .user-profile-age h2,
 .user-profile-bio h2 {
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 .user-profile-handicap h2,
