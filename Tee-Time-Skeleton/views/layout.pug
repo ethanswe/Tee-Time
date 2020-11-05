@@ -24,17 +24,30 @@ html
           a(href=`/users/${user.id}` class='header-nav__link')
             div(class='header-nav__link-profile') Profile
           a(href='/logout' class='header-nav__link logout-button')
-            div(class="header-nav__link-sign-out") Sign Out
+            div(class="header-nav__link-sign-out" id='special-button') Sign Out
         else
           a(href='/login' class='header-nav__link')
             div(class='header-nav__link-sign-in') Sign In
           a(href='/signup' class='header-nav__link')
-            div(class="header-nav__link-sign-up") Sign Up
+            button(class="header-nav__link-sign-up" id="special-button") Sign Up
 
 
     block content
 
 
     footer
-      .footer__github-logo
-        img(src='https://clipart.info/images/ccovers/1499794873github-logo-png.png')
+      .footer-container
+        .footer-container__text
+          .footer-container__links
+            a(href='/courses') Courses
+            a(href='/tee-times') TeeTimes
+            if authenticated
+              a(href=`/users/${user.id}`) Profile
+              a(href='/logout') Sign Out
+            else
+              a(href='/signup') Sign Up
+              a(href='/login') Sign In
+          .footer-container__ethos
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          .footer__github-logo
+        //- img(src='https://clipart.info/images/ccovers/1499794873github-logo-png.png')

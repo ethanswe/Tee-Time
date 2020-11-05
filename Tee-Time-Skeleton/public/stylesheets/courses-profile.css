@@ -7,7 +7,7 @@
 
 .course-grid-container {
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
     "text text img"
     "info . button"
     ;
@@ -49,7 +49,7 @@
      /* width: auto;
     height: auto; */
     max-width: 75%;
-    max-height: 400px; 
+    max-height: 400px;
     /* height: 500px; */
     /* margin-right: 10px; */
     display: flex;
@@ -136,8 +136,8 @@ h1 {
 
 .banner {
       background-image: linear-gradient(
-      rgba(34, 139, 34, 0.3),
-      rgba(34, 139, 34, 0.3)
+      rgba(52, 229, 241, 0.25),
+      rgba(52, 229, 241, 0.25)
     ),
     url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg);
 }

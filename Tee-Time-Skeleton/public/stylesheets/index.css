@@ -1,16 +1,17 @@
 .banner {
   background-image: linear-gradient(
-      rgba(34, 139, 34, 0.3),
-      rgba(34, 139, 34, 0.3)
+      rgba(52, 229, 241, 0.25),
+      rgba(52, 229, 241, 0.25)
     ),
     url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg);
 }
+
 .banner__text-subtext {
   font-size: 20px;
 }
 
 .page {
-  background-color: rgb(2, 24, 5);
+  background-color: rgb(3, 71, 3);
   width: 100%;
   text-align: center;
   padding: 2em 1em;
@@ -19,28 +20,31 @@
 
 .page__container {
   min-height: 85px;
-  background-color: rgb(2, 24, 5);
+  background-color: rgb(3, 71, 3);
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
   padding: 0 1em;
   max-width: 1020px;
   text-align: center;
+  display: flex;
+  justify-content: space-around;
 }
 
 .page__text {
-  background-color: rgb(2, 24, 5);
-  float: left;
+  background-color: rgb(3, 71, 3);
+  color: white;
   display: block;
   margin-right: 2.35%;
-  width: 31.76%;
+  width: 35%;
   margin-bottom: 0;
   text-align: center;
   line-height: 1.625;
 }
 
 .page__text-last {
-  background-color: rgb(2, 24, 5);
+  background-color: rgb(3, 71, 3);
+  color: white;
   margin-right: 0;
   margin: 0;
   float: left;
@@ -57,10 +61,63 @@
   font-weight: 600;
   margin: 0;
   text-align: center;
+  font-size: larger;
 }
 
 .page__text-subtext {
-  background-color: rgb(2, 24, 5);
+  background-color: rgb(3, 71, 3);
+  color: white;
   margin: 0;
   text-align: center;
+}
+
+.about-container {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 5px; */
+}
+
+.about-container__img.image-cropper {
+  height: 300px;
+  width: 300px;
+  margin: 25px 40px;
+  display: flex;
+  align-items: stretch;
+}
+
+.about-container__img > img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-cropper {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.about-container__text {
+  height: 200px;
+  width: 320px;
+  margin: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: left;
+  line-height: 1.5em;
+  color: black;
+}
+
+.about-container__text p {
+  background-color: rgba(52, 229, 241, 0);
+}
+
+.about-container__text-h1 {
+  color: black;
+  line-height: 1em;
 }
