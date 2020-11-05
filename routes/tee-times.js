@@ -12,13 +12,13 @@ router.get('/', asyncHandler(async (req, res) => {
 
 
 // GET CREATE TEETIME FORM //
-router.get('/create', requireAuth, (req, res) => {
-  const cities = db.City.findAll({ order: ['name'] });
-  const courses = db.Course.findAll();
-  const playStyles = db.PlayStyle.findAll();
+router.get('/create', asyncHandler(async (req, res) => {
+  // const cities = await db.City.findAll({ order: ['name'] });
+  const courses = await db.Course.findAll();
+  const playStyles = await db.PlayStyle.findAll();
 
-  res.render('tee-times-create', { title: 'Create a Tee Time', })
-})
+  res.render('tee-times-create', { title: 'Create a Tee Time', courses, playStyles })
+}))
 
 router.get('/', asyncHandler(async(req, res) => {
   const {  }
