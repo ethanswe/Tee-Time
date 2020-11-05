@@ -8,10 +8,9 @@ const { asyncHandler } = require('./utils');
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
   if (res.locals.authenticated) {
     console.log('authenticated', res.locals.user.id);
-    const user = await db.User.findByPk(req.params.id);
-    
+    const user = await db.User.findByPk(req.params.id, { include: db.City });
     if (res.locals.user.id === user.id) {
-      return res.render('users-profile', { title: `Welcome ${user.firstName}` });
+      return res.render('users-profile', { title: `Welcome ${user.firstName}`, user });
     }
   }
   console.log('redirecting to login');
