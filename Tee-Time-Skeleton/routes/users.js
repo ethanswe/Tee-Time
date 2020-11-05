@@ -9,6 +9,7 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
   if (res.locals.authenticated) {
     console.log('authenticated', res.locals.user.id);
     const user = await db.User.findByPk(req.params.id);
+    
     if (res.locals.user.id === user.id) {
       return res.render('users-profile', { title: `Welcome ${user.firstName}` });
     }

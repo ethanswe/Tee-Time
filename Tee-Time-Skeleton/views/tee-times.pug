@@ -1,0 +1,19 @@
+extends layout.pug
+
+append head
+  link(rel='stylesheet' href='/stylesheets/tee-times.css')
+
+
+
+include utils.pug
+
+block content
+  +banner(
+    'Find a TeeTime near you',
+    'start meeting new golf partners'
+  )
+  
+  if teeTimes
+    each teeTime in teeTimes
+      .teeTime-container
+        

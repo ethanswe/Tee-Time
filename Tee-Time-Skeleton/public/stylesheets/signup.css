@@ -1,12 +1,12 @@
 .form-container {
-  max-width: 550px;
+  max-width: 750px;
   margin: 0 auto;
 }
 
 .signup__form {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   border-radius: 8px;
   padding: 25px 40px;
@@ -17,7 +17,7 @@ form input,
 textarea,
 select {
   margin: 8px;
-  height: 50px;
+  height: 55px;
   border-radius: 7px;
   border: 2px solid black;
   background-color: rgb(255, 235, 165);
@@ -62,7 +62,7 @@ form > div {
   position: relative;
   left: 65px;
   text-align: left;
-  line-height: 30px;;
+  line-height: 30px;
 }
 
 ::placeholder {
@@ -72,5 +72,5 @@ form > div {
 
 select {
   color: black;
-  font-size: 1em;
+  font-size: 1.3em;
 }

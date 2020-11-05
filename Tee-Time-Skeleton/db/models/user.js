@@ -11,6 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.belongsTo(models.City, { foreignKey: 'cityId' });
+      User.hasMany(models.TeeTime, { foreignKey: 'ownerId' });
+
+      const columnMapping = {
+        through: 'UserTeeTimes',
+        otherKey: 'userId',
+        foreignKey: 'teeTimeId'
+      }
+      User.belongsToMany(models.TeeTime, columnMapping)
     }
   };
   User.init({
