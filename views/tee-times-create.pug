@@ -1,0 +1,15 @@
+extends layout.pug
+
+append head
+  link(rel='stylesheet' href='/stylesheets/tee-times-create.css')
+  script(async defer src='/javascripts/tee-times-create.js')
+
+include utils.pug
+
+block content
+  +banner(
+    'Create A New TeeTime',
+    'choose your favorite playstyle.'
+  )
+
+  form(action)
