@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const { requireAuth } = require('../auth');
 const db = require('../db/models');
+const { asyncHandler } = require('./utils');
 
 // GET TEETIMES SPLASH PAGE //
-router.get('/', (req, res) => {
-  // const teeTimes = db.TeeTime.findAll({ order: ['dateTime'] });
-  res.render('tee-times', { title: 'TeeTimes' });
-})
+router.get('/', asyncHandler(async (req, res) => {
+  const teeTimes = await db.TeeTime.findAll({ order: ['dateTime'] });
+  res.render('tee-times', { title: 'TeeTimes', teeTimes });
+}));
 
  
 // GET CREATE TEETIME FORM //
