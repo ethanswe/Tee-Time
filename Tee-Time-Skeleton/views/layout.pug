@@ -24,12 +24,12 @@ html
           a(href=`/users/${user.id}` class='header-nav__link')
             div(class='header-nav__link-profile') Profile
           a(href='/logout' class='header-nav__link logout-button')
-            div(class="header-nav__link-sign-out") Sign Out
+            div(class="header-nav__link-sign-out" id='special-button') Sign Out
         else
           a(href='/login' class='header-nav__link')
             div(class='header-nav__link-sign-in') Sign In
           a(href='/signup' class='header-nav__link')
-            div(class="header-nav__link-sign-up") Sign Up
+            button(class="header-nav__link-sign-up" id="special-button") Sign Up
 
 
     block content

@@ -42,7 +42,7 @@
 }
 
 .page__text-last {
-  background-color:rgb(3, 71, 3);
+  background-color: rgb(3, 71, 3);
   color: white;
   margin-right: 0;
   margin: 0;
@@ -69,7 +69,6 @@
   margin: 0;
   text-align: center;
 }
-
 
 .about-container {
   height: 300px;
@@ -117,6 +116,7 @@
   background-color: rgba(52, 229, 241, 0);
 }
 
-.about-container__text-header {
-  color: black:
+.about-container__text-h1 {
+  color: black;
+  line-height: 1em;
 }

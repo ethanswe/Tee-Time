@@ -19,6 +19,7 @@
 .header-nav__group {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 33%;
   padding: 2px;
 }
@@ -147,7 +148,7 @@ button:hover {
   display: block;
   font-size: 0.65em;
   font-weight: 400;
-  color: rgb(0, 0, 0);
+  color: honeydew;
 }
 
 .banner__container {
@@ -156,4 +157,20 @@ button:hover {
   align-items: center;
   flex-direction: row;
   background-color: rgba(34, 139, 34, 0);
+}
+
+#special-button {
+  color: forestgreen;
+  background-color:honeydew;
+  /* border-color: white; */
+  border: 2px solid honeydew;
+  text-transform: uppercase;
+  padding: 5px 12px;
+}
+
+#special-button:hover {
+  background-color: forestgreen;
+  border: 2px solid forestgreen;
+  box-shadow: 0 0 3px 2px forestgreen;
+  color: white;
 }
