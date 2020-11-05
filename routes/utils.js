@@ -63,7 +63,22 @@ const loginValidators = [
 
 
 const teeTimeValidators = [
-  check()
+  check('courseId')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a value for Course'),
+  check('playStyleId')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a value for Play Style'),
+  check('numPlayers')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a value for Number of Players')
+    .isLength({ max: 50 })
+    .withMessage('Number of Players cannot exceed 50'),
+  // check('dateTime')
+    // .exists({ checkFalsy: true })
+    // .withMessage('Please provide a date and time')
+    // .matches(/(^201d), ([1-12]), ([1-31]), ([1-12]), (1-59), 0$/)
+    // .withMessage('Please provide valid values for date and time')
 ]
 
 module.exports = {
