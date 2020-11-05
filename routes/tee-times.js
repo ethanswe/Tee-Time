@@ -13,6 +13,7 @@ router.get('/', asyncHandler(async (req, res) => {
       include: db.City
     }]
   });
+  
   res.render('tee-times', { title: 'TeeTimes', teeTimes });
 }));
 
@@ -49,15 +50,15 @@ router.get('/', asyncHandler(async(req, res) => {
 
 // POST NEW TEETIME //
 router.post('/', requireAuth, asyncHandler(async(req, res) => {
-  const { 
-    month, day, year, 
-    hour, minute, am_pm, 
-    courseId, 
+  const {
+    month, day, year,
+    hour, minute, am_pm,
+    courseId,
     playStyleId,
     numPlayers,
     description
   } = req.body
-  
+
   const date = new Date(year, month - 1, day, hour, minute, 0)
   const ownerId = res.locals.user.id
 
