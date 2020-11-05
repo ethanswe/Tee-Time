@@ -5,3 +5,57 @@
     ),
     url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg);
 }
+
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  padding: 5px;
+  border-radius: 3px;
+  border: 2px solid blaCK;
+}
+
+.grid-item__1 {
+  display: flex;
+  justify-content: left;
+  max-width: 200px;
+}
+.grid-item__2 {
+  display: grid;
+  grid-template-areas:
+  "host" "course"
+  "playstyle" "price"
+  "description" "description"
+  "description" "description"
+  ;
+  grid-template-columns: 50% 35%;
+  grid-template-rows: 25% 25% 25% 25%;
+  justify-content: center;
+}
+.grid-item__3 {
+  display: flex;
+  justify-content: right;
+
+}
+
+.grid-event__details {
+  grid-area: description;
+  word-wrap: normal;
+}
+
+.grid-event__owner {
+  grid-area: host;
+}
+
+.grid-event__course {
+  grid-area: course;
+}
+
+.grid-event__play-style {
+  grid-area: playstyle;
+}
+
+.grid-event__price {
+  grid-area: price;
+}

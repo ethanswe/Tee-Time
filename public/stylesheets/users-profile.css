@@ -16,7 +16,7 @@
 }
 .user-profile-container {
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
     "profile stats play"
     "name handicap button"
     "email city ."
