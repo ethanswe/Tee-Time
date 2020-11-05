@@ -20,17 +20,62 @@
 .header-nav__group {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 33%;
   padding: 2px;
 }
 
-.header-nav__link > div {
+.header-nav__group > a > div {
+  font-weight: 700;
   font-size: 18px;
 }
 
 .header-nav__logo > a > div {
   font-family: 'Architects Daughter', cursive;
   font-size: 40px;
+}
+
+footer {
+  overflow: auto;
+  padding: 4px 0;
+  display: block;
+}
+
+.footer-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding: 0 1em;
+
+}
+.footer-container__text {
+  display: flex;
+  width: 100%;
+}
+
+.footer-container__links {
+  text-align: left;
+  margin: 20px;
+}
+
+.footer-container__links a {
+  display: block;
+  padding: 20px;
+  color: black;
+  font-weight: 700;
+}
+
+.footer-container__ethos {
+  display: flex;
+  margin-right: 0;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  text-align: left;
+  line-height: 1.5em;
+  width: 700px;
+  overflow: hidden;
 }
 
 .footer__github-logo img {
@@ -107,7 +152,7 @@ button:hover {
   display: block;
   font-size: 20px;
   font-weight: 400;
-  color: white
+  color: honeydew;
 }
 
 .banner__container {
@@ -116,4 +161,19 @@ button:hover {
   align-items: center;
   flex-direction: row;
   background-color: rgba(34, 139, 34, 0);
+}
+
+#special-button {
+  color: forestgreen;
+  background-color:honeydew;
+  border: 2px solid honeydew;
+  text-transform: uppercase;
+  padding: 5px 12px;
+}
+
+#special-button:hover {
+  background-color: forestgreen;
+  border: 2px solid forestgreen;
+  box-shadow: 0 0 3px 2px forestgreen;
+  color: white;
 }
