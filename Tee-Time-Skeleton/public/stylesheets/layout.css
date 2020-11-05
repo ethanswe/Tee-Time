@@ -1,6 +1,7 @@
 * {
   font-family: 'Montserrat', sans-serif;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
+  background-color: rgba(58, 241, 58, 0.12);
   color: #464646;
 }
 
@@ -26,6 +27,7 @@
 
 .header-nav__group > a > div {
   font-weight: 700;
+  font-size: 18px;
 }
 
 .header-nav__logo > a > div {
@@ -101,9 +103,9 @@ h1 {
 }
 
 button {
-  background-color: goldenrod;
-  border-color: goldenrod;
-  border: 2px solid goldenrod;
+  background-color: rgb(255, 162, 0);
+  border-color: rgb(255, 162, 0);
+  border: 2px solid rgb(255, 162, 0);
   color: white;
   text-transform: uppercase;
   font-weight: 600;
@@ -115,10 +117,10 @@ button {
 }
 
 button:hover {
-  background-color: rgb(255, 162, 0);
-  border-color: rgb(255, 162, 0);
-  border: 2px solid rgb(255, 162, 0);
-  box-shadow: 0 0 3px 2px rgb(255, 162, 0);
+  background-color: rgb(255, 115, 0);
+  border-color: rgb(255, 115, 0);
+  border: 2px solid rgb(255, 115, 0);
+  box-shadow: 0 0 3px 2px rgb(255, 115, 0);
   color: white;
   text-transform: uppercase;
 }
@@ -131,7 +133,9 @@ button:hover {
 }
 
 .banner__text {
+  display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 auto;
   max-width: 650px;
   text-align: center;
@@ -146,7 +150,7 @@ button:hover {
 .banner__text-subtext {
   margin-bottom: 36px;
   display: block;
-  font-size: 0.65em;
+  font-size: 20px;
   font-weight: 400;
   color: honeydew;
 }
@@ -162,7 +166,6 @@ button:hover {
 #special-button {
   color: forestgreen;
   background-color:honeydew;
-  /* border-color: white; */
   border: 2px solid honeydew;
   text-transform: uppercase;
   padding: 5px 12px;

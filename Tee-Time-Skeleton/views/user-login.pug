@@ -1,20 +1,34 @@
 extends layout.pug
 
+append head
+  link(rel='stylesheet' href='/stylesheets/login.css')
+
 include utils.pug
 
 block content
+  +banner(
+    'Welcome Back!',
+    'it\'s nice to see you again',
+    '/',
+    null
+  )
 
-  if errors
-    each error in errors
-      .error= error
-      
-  +validationErrorSummary(errors)
-  form(action='/login' method='post')
-    input(type='hidden' name='_csrf' value=csrfToken)
-    +field('Email Address', 'email', email)
-    +field('Password', 'password', null, 'password')
-    div(class='py-4')
-      button(type='submit' class='btn btn-primary') Login
-      a(href='/' class='btn btn-warning ml-2') Cancel
-    div
-      p: a(href='/signup') Don't have an account?
+  br
+  .error-container
+    if errors
+      ul
+      each error in errors
+        li.error= error
+
+  br
+  .form-container
+    form(action='/login' method='post' class='signup__form')
+      input(type='hidden' name='_csrf' value=csrfToken)
+      input(type='text' name='email', placeholder='Email')
+      //- +field('Email Address', 'email', email)
+      input(type='password' name='password' placeholder='Password')
+      //- +field('Password', 'password', null, 'password')
+      div(class='py-4')
+        button(type='submit' class='btn btn-primary') Login
+      div
+        p: a(href='/signup') Don't have an account?
