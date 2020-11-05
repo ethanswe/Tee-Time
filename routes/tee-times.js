@@ -1,8 +1,13 @@
 const express = require('express');
+const { validationResult } = require('express-validator');
 const router = express.Router();
 const { requireAuth } = require('../auth');
 const db = require('../db/models');
-const { asyncHandler } = require('./utils');
+const { 
+  asyncHandler, 
+  csrfProtection, 
+  teeTimeValidators
+} = require('./utils');
 
 // GET TEETIMES SPLASH PAGE //
 router.get('/', asyncHandler(async (req, res) => {
@@ -12,13 +17,18 @@ router.get('/', asyncHandler(async (req, res) => {
 
 
 // GET CREATE TEETIME FORM //
-router.get('/create', asyncHandler(async (req, res) => {
+router.get('/create', csrfProtection, asyncHandler(async (req, res) => {
   // const cities = await db.City.findAll({ order: ['name'] });
   const courses = await db.Course.findAll();
   const playStyles = await db.PlayStyle.findAll();
   const teeTime = {}
 
-  res.render('tee-times-create', { title: 'Create a Tee Time', courses, playStyles, teeTime })
+  res.render('tee-times-create', { 
+    courses, 
+    playStyles, 
+    teeTime,
+    csrfToken: req.csrfToken()
+  })
 }))
 
 
@@ -42,7 +52,11 @@ router.get('/', asyncHandler(async(req, res) => {
 
 
 // POST NEW TEETIME //
-router.post('/', requireAuth, asyncHandler(async(req, res) => {
+router.post('/', 
+  requireAuth, 
+  teeTimeValidators, 
+  csrfProtection,
+  asyncHandler(async(req, res) => {
   const { 
     month, day, year, 
     hour, minute, am_pm, 
@@ -52,10 +66,42 @@ router.post('/', requireAuth, asyncHandler(async(req, res) => {
     description
   } = req.body
   
+  if (am_pm === 'pm') hour += 12;
+
+  const user = res.locals.user
   const date = new Date(year, month - 1, day, hour, minute, 0)
-  const ownerId = res.locals.user.id
+  const ownerId = user.id
 
+  const teeTime = await db.TeeTime.build({
+    dateTime: date,
+    description,
+    courseId,
+    numPlayers,
+    ownerId,
+    playStyleId
+  })
 
+  // console.log(date);
+
+  const validationErrors = validationResult(req)
+
+    if (validationErrors.isEmpty()) {
+      await teeTime.save();
+      res.redirect(`/users/${user.id}`);
+
+    } else {
+      const courses = await db.Course.findAll();
+      const playStyles = await db.PlayStyle.findAll();
+      const errors = validationErrors.array().map((error) => error.msg);
+
+      res.render('tee-times-create', {
+        teeTime,
+        errors,
+        courses,
+        playStyles,
+        csrfToken: req.csrfToken(),
+      });
+    }
 
 
 }));
