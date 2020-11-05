@@ -1,5 +1,7 @@
 extends layout.pug
 
+include utils.pug
+
 append head
   link(rel='stylesheet' href='/stylesheets/tee-times.css')
 
@@ -14,8 +16,9 @@ block content
     '/tee-times/create',
     'Create A New TeeTime'
   )
-  
   if teeTimes
     each teeTime in teeTimes
       .teeTime-container
-        
+        h2 #{teeTimes.dateTime}
+  each teeTime in teeTimes
+    h2 #{teeTime.dateTime}
