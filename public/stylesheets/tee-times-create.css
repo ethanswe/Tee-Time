@@ -1,3 +1,5 @@
+@import 'signup.css';
+
 .banner {
   background-image: linear-gradient(
       rgba(52, 229, 241, 0.25),
@@ -8,4 +10,52 @@
 
 .header-banner__button-link {
   visibility: hidden;
+}
+
+.tee-times-create__form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 25px 40px;
+  background-color: rgba(26, 167, 26, 0);
+}
+
+form label {
+  margin: 8px;
+  height: 55px;
+  font-size: 1.3em;
+  color: black;
+}
+
+.form-group-1,
+.form-group-2 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-right: 60px;
+}
+
+.form-group-1 label,
+.form-group-2 label {
+  text-align: left;
+  height: 25px;
+}
+
+.form-group-1 input {
+  width: 75px;
+}
+
+.form-group-2 input {
+  width: 55px;
+}
+
+#year {
+  width: 100px
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
 }

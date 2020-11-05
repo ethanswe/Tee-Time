@@ -14,21 +14,50 @@ block content
     null
   )
 
-  form(action='/tee-times' method='post')
-    label(for='date') Date:
-    input(type='number' id='date' name='month' placeholder='MM' class='form__date')
-    input(type='number' name='day' placeholder='DD' class='form__date')
-    input(type='number' name='year' placeholder='YYYY' class='form__date')
-    label(for='time') Time:
-    input(id='time' type='number')
-    label(for='time') h
-    input(id='minutes' type='number')
-    label(for='minutes') m
+  main
+    br
+    .error-container
+      if errors
+        ul
+        each error in errors
+          li.error= error
 
-    //- select.city-selector(name='cityId')
-    //-   each city in cities
-    //-     option(value=city.id)= city.name
-    select.course-selector(name='courseId')
-      each course in courses
-        option(value=course.id)= course.name
+    br
+    .form-container
+      form(action='/tee-times' method='post' class='tee-times-create__form')
+        .form-group-1
+          label(for='date') Date:
+          input(type='number' id='date' name='month' placeholder='MM' value=teeTime.month)
+          input(type='number' name='day' placeholder='DD' value=teeTime.day)
+          input(type='number' name='year' placeholder='YYYY' value=teeTime.year id='year')
 
+        .form-group-2
+          label(for='time') Time:
+          input(id='time' name='hour' placeholder='8' value=teeTime.hour type='number')
+          label(for='time') H
+          input(id='minutes' name='minute' type='number' placeholder='15' value=teeTime.hour)
+          label(for='minutes') M
+          select(name='am_pm')
+            option(value='am') AM
+            option(value='pm') PM
+
+        //- select.city-selector(name='cityId')
+        //-   each city in cities
+        //-     option(value=city.id)= city.name
+        select(name='courseId' value=teeTime.courseId)
+          option(value='') -- please select a course --
+          each course in courses
+            option(value=course.id)= course.name
+
+        select(name='playStyleId' value=teeTime.playStyleId)
+          option(value='') -- please select a play style --
+          each playStyle in playStyles
+            option(value=playStyle.id)= playStyle.name
+
+        input(type='number' name='numPlayers' placeholder='How many players?' value=teeTime.numPlayers)
+
+        textarea(name='description' placeholder='Anything else?' value=teeTime.  description)
+
+        br
+        .submit-button
+          button(type='submit') Create TeeTime

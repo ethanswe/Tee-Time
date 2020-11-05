@@ -61,9 +61,15 @@ const loginValidators = [
     .withMessage('Please provide a value for Password'),
 ];
 
+
+const teeTimeValidators = [
+  check()
+]
+
 module.exports = {
   csrfProtection,
   asyncHandler,
   userValidators,
   loginValidators,
+  teeTimeValidators
 };

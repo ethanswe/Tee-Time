@@ -23,6 +23,7 @@ select {
   background-color: rgb(255, 235, 165);
   font-size: 1.3em;
   color: black;
+  padding-left: 10px
 }
 
 form textarea {
