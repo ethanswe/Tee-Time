@@ -27,25 +27,20 @@ block content
         .grid-event__details
           h2 #{teeTime.description}
         .grid-event__course
-          h2 #{teeTime.Course.name}
+          h2 Location: #{teeTime.Course.name}
         .grid-event__numPlayers
           h2 Number of players: #{teeTime.numPlayers}
-        .grid-event__owner
-          h2 #{teeTime.User.firstName} #{teeTime.User.lastName}
+        //- .grid-event__owner
+        //-   h2 #{teeTime.User.firstName} #{teeTime.User.lastName}
         .grid-event__play-style
-          h2 #{teeTime.PlayStyle.name}
+          h2 Play style: #{teeTime.PlayStyle.name}
         .grid-event__price
-          .min-price
-            h2 #{teeTime.Course.minPrice}
-          .max-price
-            h2 #{teeTime.Course.maxPrice}
+          .price-range
+            h2 Price range: $#{teeTime.Course.minPrice} - $#{teeTime.Course.maxPrice}
       .grid-item__3
-        .grid-buttons
-          .grid-button__join
-            button Join
+        .grid-button
+          button Join
           - var isOwner = (teeTime.ownerId === teeTime.User.id)
           if (teeTime.ownerId = teeTime.User.id)
-            .grid-button__edit
-              button Edit
-            .grid-button__delete
-              button Delete
+            button Edit
+            button Delete

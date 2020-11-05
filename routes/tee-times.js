@@ -3,9 +3,9 @@ const { validationResult } = require('express-validator');
 const router = express.Router();
 const { requireAuth } = require('../auth');
 const db = require('../db/models');
-const { 
-  asyncHandler, 
-  csrfProtection, 
+const {
+  asyncHandler,
+  csrfProtection,
   teeTimeValidators
 } = require('./utils');
 
@@ -18,6 +18,7 @@ router.get('/', asyncHandler(async (req, res) => {
       include: db.City
     }]
   });
+
   res.render('tee-times', { title: 'TeeTimes', teeTimes });
 }));
 
@@ -29,9 +30,9 @@ router.get('/create', csrfProtection, asyncHandler(async (req, res) => {
   const playStyles = await db.PlayStyle.findAll();
   const teeTime = {}
 
-  res.render('tee-times-create', { 
-    courses, 
-    playStyles, 
+  res.render('tee-times-create', {
+    courses,
+    playStyles,
     teeTime,
     csrfToken: req.csrfToken()
   })
@@ -58,20 +59,20 @@ router.get('/', asyncHandler(async(req, res) => {
 
 
 // POST NEW TEETIME //
-router.post('/', 
-  requireAuth, 
-  teeTimeValidators, 
+router.post('/',
+  requireAuth,
+  teeTimeValidators,
   csrfProtection,
   asyncHandler(async(req, res) => {
-  const { 
-    month, day, year, 
-    hour, minute, am_pm, 
-    courseId, 
+  const {
+    month, day, year,
+    hour, minute, am_pm,
+    courseId,
     playStyleId,
     numPlayers,
     description
   } = req.body
-  
+
   if (am_pm === 'pm') hour += 12;
 
   const user = res.locals.user
