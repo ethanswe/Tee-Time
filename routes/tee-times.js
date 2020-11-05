@@ -16,12 +16,14 @@ router.get('/create', asyncHandler(async (req, res) => {
   // const cities = await db.City.findAll({ order: ['name'] });
   const courses = await db.Course.findAll();
   const playStyles = await db.PlayStyle.findAll();
+  const teeTime = {}
 
-  res.render('tee-times-create', { title: 'Create a Tee Time', courses, playStyles })
+  res.render('tee-times-create', { title: 'Create a Tee Time', courses, playStyles, teeTime })
 }))
 
+
 router.get('/', asyncHandler(async(req, res) => {
-  const {  }
+  // const {  }
   const filteredCourses = await db.Course.findAll({
     where: {
       minPrice: {
@@ -40,9 +42,23 @@ router.get('/', asyncHandler(async(req, res) => {
 
 
 // POST NEW TEETIME //
-router.post('/', requireAuth, (req, res) => {
+router.post('/', requireAuth, asyncHandler(async(req, res) => {
+  const { 
+    month, day, year, 
+    hour, minute, am_pm, 
+    courseId, 
+    playStyleId,
+    numPlayers,
+    description
+  } = req.body
+  
+  const date = new Date(year, month - 1, day, hour, minute, 0)
+  const ownerId = res.locals.user.id
 
-})
+
+
+
+}));
 
 router.delete('/:id(\\d+)', requireAuth, (req, res) => {
 
