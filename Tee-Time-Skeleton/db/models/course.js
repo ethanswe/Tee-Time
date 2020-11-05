@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, Sequelize
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Course extends Model {
@@ -42,6 +42,9 @@ module.exports = (sequelize, DataTypes) => {
     maxPrice: {
       allowNull: false,
       type: DataTypes.NUMERIC(6,2)
+    }, 
+    imgPath: {
+      type: DataTypes.STRING,
     }
   }, {
     sequelize,
