@@ -10,17 +10,25 @@ block content
   +banner(
     'Create A New TeeTime',
     'choose your favorite playstyle.',
+    null,
+    null
   )
 
   form(action='/tee-times' method='post')
     label(for='date') Date:
-    input(type='number' id='date' name='month' placeholder='MM')
-    input(type='number' name='day' placeholder='DD')
-    input(type='number' name='year' placeholder='YYYY')
+    input(type='number' id='date' name='month' placeholder='MM' class='form__date')
+    input(type='number' name='day' placeholder='DD' class='form__date')
+    input(type='number' name='year' placeholder='YYYY' class='form__date')
     label(for='time') Time:
-    input(id='time' type='umber')
-    select.city-selector(name='cityId')
-      each city in cities
-        option(value=city.id)= city.name
+    input(id='time' type='number')
+    label(for='time') h
+    input(id='minutes' type='number')
+    label(for='minutes') m
+
+    //- select.city-selector(name='cityId')
+    //-   each city in cities
+    //-     option(value=city.id)= city.name
     select.course-selector(name='courseId')
-      each 
+      each course in courses
+        option(value=course.id)= course.name
+

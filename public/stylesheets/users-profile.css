@@ -5,8 +5,8 @@
 } */
 .banner {
   background-image: linear-gradient(
-      rgba(34, 139, 34, 0.3),
-      rgba(34, 139, 34, 0.3)
+      rgba(52, 229, 241, 0.25),
+      rgba(52, 229, 241, 0.25)
     ),
     url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg);
 }

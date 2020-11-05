@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      PlayStyle.belongsTo(models.TeeTime, { foreignKey: 'playStyleId' });
+      PlayStyle.hasMany(models.TeeTime, { foreignKey: 'playStyleId' });
     }
   };
   PlayStyle.init({
