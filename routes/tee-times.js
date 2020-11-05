@@ -13,7 +13,11 @@ router.get('/', (req, res) => {
 
 // GET CREATE TEETIME FORM //
 router.get('/create', requireAuth, (req, res) => {
-  res.send('Create New TeeTime Form')
+  const cities = db.City.findAll({ order: ['name'] });
+  const courses = db.Course.findAll();
+  const playStyles = db.PlayStyle.findAll();
+
+  res.render('tee-times-create', { title: 'Create a Tee Time', })
 })
 
 router.get('/', asyncHandler(async(req, res) => {

@@ -1,0 +1,26 @@
+extends layout.pug
+
+append head
+  link(rel='stylesheet' href='/stylesheets/tee-times-create.css')
+  script(async defer src='/javascripts/tee-times-create.js')
+
+include utils.pug
+
+block content
+  +banner(
+    'Create A New TeeTime',
+    'choose your favorite playstyle.',
+  )
+
+  form(action='/tee-times' method='post')
+    label(for='date') Date:
+    input(type='number' id='date' name='month' placeholder='MM')
+    input(type='number' name='day' placeholder='DD')
+    input(type='number' name='year' placeholder='YYYY')
+    label(for='time') Time:
+    input(id='time' type='umber')
+    select.city-selector(name='cityId')
+      each city in cities
+        option(value=city.id)= city.name
+    select.course-selector(name='courseId')
+      each 
