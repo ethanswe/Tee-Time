@@ -1,5 +1,7 @@
 extends layout.pug
 
+include utils.pug
+
 append head
   link(rel='stylesheet' href='/stylesheets/tee-times.css')
 
@@ -12,8 +14,9 @@ block content
     'Find a TeeTime near you',
     'start meeting new golf partners'
   )
-  
   if teeTimes
     each teeTime in teeTimes
       .teeTime-container
-        
+        h2 #{teeTimes.dateTime}
+  each teeTime in teeTimes
+    h2 #{teeTime.dateTime}
