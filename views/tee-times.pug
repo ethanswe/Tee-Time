@@ -56,6 +56,11 @@ block content
               else
                 button.join-button(id=teeTime.id) Join
                 
-    .form-container
-      form(action='/api/tee-times/:id' method='put')
-      
+
+    .form-container.hidden(id=`form-container-${teeTime.id}`)
+      form(action=`/api/tee-times/${teeTime.id}` method='put' class='tee-times-edit__form')
+
+        include tee-times-create-formData.pug
+        +formData(teeTime, teeTime.playStyle, teeTime.course)
+
+        button.update-button(type='submit' id=teeTime.id) Update

@@ -12,7 +12,7 @@ const {
 
 // GET TEETIMES SPLASH PAGE //
 router.get('/', asyncHandler(async (req, res) => {
-  let teeTimes = await db.TeeTime.findAll({
+  const teeTimes = await db.TeeTime.findAll({
     order: ['dateTime'],
     include: [db.Course, db.PlayStyle, db.User, 
       {
@@ -22,8 +22,10 @@ router.get('/', asyncHandler(async (req, res) => {
         association: 'Users'
       }]
   });
+  const courses = await db.Course.findAll();
+  const playStyles = await db.PlayStyle.findAll();
 
-  res.render('tee-times', { title: 'TeeTimes', teeTimes });
+  res.render('tee-times', { title: 'TeeTimes', teeTimes, courses, playStyles });
 }));
 
 
@@ -123,6 +125,7 @@ router.post(
 
 
 }));
+
 
 router.post(
   '/:id(\\d+)', 

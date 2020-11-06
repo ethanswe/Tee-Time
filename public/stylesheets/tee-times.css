@@ -1,3 +1,5 @@
+@import 'tee-times-create.css';
+
 .banner {
   background-image: linear-gradient(
       rgba(52, 229, 241, 0.25),
@@ -16,8 +18,8 @@
   grid-template-rows: auto;
   padding: 5px;
   border-radius: 8px;
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
-  border: 1px solid blaCK;
+  box-shadow: 1px 1px 3px 0px black;
+  border: 1px solid black;
   width: 800px;
   margin: 15px auto;
   background-color: rgb(255, 235, 165);
@@ -124,4 +126,34 @@
   transform: none;
   box-shadow: none;
   cursor: default;
+}
+
+
+
+/* HIDDEN EDIT FORM STYLES */
+
+.form-container {
+  width: 550px;
+  margin: 20px auto;
+  box-shadow: 1px 1px 3px 0px black;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+.tee-times-edit__form {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: 0 auto;
+  padding: 25px 40px;
+  background-color: rgba(26, 167, 26, 0);
+}
+
+
+.update-button {
+  margin: 0 auto;
 }
