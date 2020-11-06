@@ -14,7 +14,7 @@ const {
 router.get('/', asyncHandler(async (req, res) => {
   let teeTimes = await db.TeeTime.findAll({
     order: ['dateTime'],
-    include: [db.Course, db.PlayStyle, db.User, 
+    include: [db.Course, db.PlayStyle, db.User,
       {
         model: db.Course,
         include: db.City
@@ -31,13 +31,32 @@ router.get('/', asyncHandler(async (req, res) => {
 router.get(
   '/create',
   requireAuth,
-  csrfProtection, 
+  csrfProtection,
   asyncHandler(async (req, res) => {
   const courses = await db.Course.findAll();
   const playStyles = await db.PlayStyle.findAll();
   const teeTime = {}
 
   res.render('tee-times-create', {
+    courses,
+    playStyles,
+    teeTime,
+    csrfToken: req.csrfToken()
+  })
+}))
+
+router.get(
+  '/create/:id(\\d+)',
+  requireAuth,
+  csrfProtection,
+  asyncHandler(async (req, res) => {
+  const courseId = await db.Course.findByPk(req.params.id)
+  const courses = await db.Course.findAll();
+  const playStyles = await db.PlayStyle.findAll();
+  const teeTime = {}
+
+  res.render('tee-times-create', {
+    courseId,
     courses,
     playStyles,
     teeTime,
@@ -83,7 +102,7 @@ router.post(
 
   if (am_pm === 'pm') hour += 12;
 
-  // const isFull = 
+  // const isFull =
   const user = res.locals.user;
   const date = new Date(year, month - 1, day, hour, minute, 0);
   const ownerId = user.id;
@@ -101,7 +120,7 @@ router.post(
 
     if (validationErrors.isEmpty()) {
       await teeTime.save();
-      await db.UserTeeTime.create({ 
+      await db.UserTeeTime.create({
         userId: res.locals.user.id,
         teeTimeId: teeTime.id
       })
@@ -125,8 +144,8 @@ router.post(
 }));
 
 router.post(
-  '/:id(\\d+)', 
-  requireAuth, 
+  '/:id(\\d+)',
+  requireAuth,
   asyncHandler(async(req, res) => {
   const teeTime = db.TeeTime.findByPk(req.params.id);
   await db.TeeTime.destroy(teeTime);
