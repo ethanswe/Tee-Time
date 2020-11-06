@@ -1,4 +1,6 @@
 'use strict';
+const format = require('dateformat');
+
 const {
   Model
 } = require('sequelize');
@@ -50,5 +52,11 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'TeeTime',
   });
+  TeeTime.prototype.formatDate = function() {
+    return format(this.dateTime, "ddd, mmm dd")
+  }
+  TeeTime.prototype.formatTime = function() {
+    return format(this.dateTime, "h:MM TT")
+  }
   return TeeTime;
 };
