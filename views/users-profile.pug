@@ -36,5 +36,6 @@ block content
     .user-profile-button
       button Find Tee Times
     .user-profile-events
-      h2 Your Events: #{currentEvents.TeeTime.dateTime} 
-      h6 #{currentEvents.TeeTime.description}
+      each event in currentEvents
+        h2 Your Events: #{event.TeeTime.dateTime} 
+        h6 #{event.TeeTime.description}

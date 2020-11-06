@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       TeeTime.belongsTo(models.PlayStyle, { foreignKey: 'playStyleId' });
 
       const columnMapping = {
-        through: 'UserTeeTimes',
+        through: 'UserTeeTime',
         otherKey: 'userId',
         foreignKey: 'teeTimeId'
       }
