@@ -110,9 +110,12 @@
   width: 100px;
 }
 
-.unjoin-button,
-.unjoin-button:hover {
+.joined-button,
+.joined-button:hover {
   background-color: rgb(255, 115, 0);
+  transform: none;
+  box-shadow: none;
+  cursor: default;
 }
 
 .full-button,

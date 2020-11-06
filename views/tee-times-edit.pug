@@ -1,0 +1,17 @@
+extends layout.pug
+
+append head
+  link(rel='stylesheet' href='/stylesheets/tee-times-create.css')
+  script(async defer src='/javascripts/tee-times-create.js')
+
+include utils.pug
+
+block content
+  +banner(
+    'Update Your TeeTime',
+    null,
+    '/tee-times',
+    'Back to TeeTimes'
+  )
+
+  include tee-times-create-form.pug
