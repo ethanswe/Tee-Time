@@ -9,7 +9,7 @@
 }
 
 .header-banner__button-link {
-  visibility: hidden;
+  visibility: unset;
 }
 
 .tee-times-create__form {

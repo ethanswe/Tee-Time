@@ -12,7 +12,7 @@
   /* justify-content: space-evenly; */
   /* align-items: center; */
   display: grid;
-  grid-template-columns: 165px 1fr 140px;
+  grid-template-columns: 175px 1fr 140px;
   grid-template-rows: auto;
   padding: 5px;
   border-radius: 8px;
@@ -28,12 +28,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 200px;
-  padding: 10px;
+  background-color: rgb(255, 162, 0);
+  color: honeydew;
+  border-radius: 8px;
+  width: 165px;
+  height: 120px;
+  padding: 8px;
+  margin: auto auto;
+  position: relative;
+  left: 6px;
 }
 
 .grid-item__1 h2 {
-  padding: 20px 0px;
+  padding: 15px 0px;
   font-size: 22px;
   font-weight: bold;
 }
