@@ -5,7 +5,7 @@ include utils.pug
 append head
   link(rel='stylesheet' href='/stylesheets/courses-profile.css')
   link(href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet")
-
+  script(src="/javascripts/tee-times-create.js" type="module" defer)
 block content
   +banner(
     `${course.name}`,
@@ -27,4 +27,4 @@ block content
       .course-profile-price-range
         h3 Price Range: $#{course.minPrice}-$#{course.maxPrice}
     .course-profile-button
-      button Create Event
+      button: a(href='/tee-times/create') Create Event

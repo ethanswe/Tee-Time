@@ -103,9 +103,10 @@ router.post(
       const courses = await db.Course.findAll();
       const playStyles = await db.PlayStyle.findAll();
       const errors = validationErrors.array().map((error) => error.msg);
-
+      const courseName = await db.Course.findByPk(teeTime.courseId);
       res.render('tee-times-create', {
         teeTime,
+        courseName,
         errors,
         courses,
         playStyles,
