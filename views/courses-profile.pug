@@ -27,4 +27,4 @@ block content
       .course-profile-price-range
         h3 Price Range: $#{course.minPrice}-$#{course.maxPrice}
     .course-profile-button
-      button(href=`/tee-times/create/${courseId}`) Create Event
+      button(type="submit" href=`/tee-times/courses/${currentCourse.id}/create`) Create Event

@@ -25,15 +25,10 @@ block content
     .form-container
       form(action='/tee-times' method='post' class='tee-times-create__form')
         input(type='hidden' name='_csrf' value=csrfToken)
-        if courseId
-          select(name='courseId' value=teeTime.courseId)
-            option(value=courseId)= courseId.name
-        else
-          select(name='courseId' value=teeTime.courseId)
-            option(value='') -- please select a course --
-            each course in courses
-              option(value=course.id)= course.name
-
+        select(name='courseId' value=teeTime.courseId)
+          option(value='') -- please select a course --
+          each course in courses
+            option(value=course.id, selected=(course.id === currentCourse.id))= course.name
         select(name='playStyleId' value=teeTime.playStyleId)
           option(value='') -- please select a play style --
           each playStyle in playStyles

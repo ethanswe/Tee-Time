@@ -46,17 +46,19 @@ router.get(
 }))
 
 router.get(
-  '/create/:id(\\d+)',
+  '/courses/:id(\\d+)/create',
   requireAuth,
   csrfProtection,
   asyncHandler(async (req, res) => {
-  const courseId = await db.Course.findByPk(req.params.id)
+  console.log('this is some text', req.params.id)
+  const currentCourse = await db.Course.findByPk(req.params.id)
+  console.log('this is text', currentCourse)
   const courses = await db.Course.findAll();
   const playStyles = await db.PlayStyle.findAll();
   const teeTime = {}
 
   res.render('tee-times-create', {
-    courseId,
+    currentCourse,
     courses,
     playStyles,
     teeTime,
