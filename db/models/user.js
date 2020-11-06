@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.TeeTime, { foreignKey: 'ownerId' });
 
       const columnMapping = {
-        through: 'UserTeeTimes',
+        through: 'UserTeeTime',
         otherKey: 'teeTimeId',
         foreignKey: 'userId'
       }
