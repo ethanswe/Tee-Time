@@ -19,7 +19,6 @@ router.get('/', asyncHandler(async (req, res) => {
       include: db.City
     }]
   });
-
   res.render('tee-times', { title: 'TeeTimes', teeTimes });
 }));
 
