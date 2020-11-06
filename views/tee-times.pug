@@ -49,7 +49,7 @@ block content
               button.delete-button(id=teeTime.id) Delete
             else
               if teeTime.isJoined(user.id)
-                button.joined-button(id=teeTime.id) Joined
+                button.unjoin-button(id=teeTime.id) Unjoin
               else if teeTime.isFull()
                 button.full-button(id=teeTime.id) Full
               else
