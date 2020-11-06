@@ -8,12 +8,14 @@ html
         link(rel='stylesheet' href='/stylesheets/layout.css')
         link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet")
         link(href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet")
+        script(async defer src="https://kit.fontawesome.com/535f4faff8.js" crossorigin="anonymous")
         script(src="/javascripts/index.js" type="module" defer)
 
   body
     .header-nav__container
       span(class='header-nav__logo')
         a(href='/' class='header-nav__link')
+          <i class="fas fa-golf-ball"></i>
           div(class="header-nav__link-home") TeeTime
       span(class='header-nav__group')
         a(href='/courses' class='header-nav__link')
