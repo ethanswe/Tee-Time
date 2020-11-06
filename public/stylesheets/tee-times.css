@@ -109,3 +109,19 @@
   margin: 5px;
   width: 100px;
 }
+
+.joined-button,
+.joined-button:hover {
+  background-color: rgb(255, 115, 0);
+  transform: none;
+  box-shadow: none;
+  cursor: default;
+}
+
+.full-button,
+.full-button:hover {
+  background-color: rgb(255, 115, 0);
+  transform: none;
+  box-shadow: none;
+  cursor: default;
+}

@@ -18,8 +18,8 @@ module.exports = (sequelize, DataTypes) => {
 
       const columnMapping = {
         through: 'UserTeeTimes',
-        otherKey: 'teeTimeId',
-        foreignKey: 'userId'
+        otherKey: 'userId',
+        foreignKey: 'teeTimeId'
       }
       TeeTime.belongsToMany(models.User, columnMapping)
     }
@@ -57,6 +57,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   TeeTime.prototype.formatTime = function() {
     return format(this.dateTime, "h:MM TT")
+  }
+  TeeTime.prototype.isJoined = function(userId) {
+    const users = this.Users;
+    const attendees = users.map(user => user.id);
+    return attendees.includes(userId)
+  }
+  TeeTime.prototype.isFull = function() {
+    return this.Users.length === this.numPlayers
   }
   return TeeTime;
 };
