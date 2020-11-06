@@ -14,7 +14,9 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const coursesRouter = require('./routes/courses');
 const teeTimesRouter = require('./routes/tee-times')
+const apisRouter = require('./routes/apis/event-handling')
 const { restoreUser } = require('./auth')
+
 
 // INITIALIZE APPLICATION OBJECT //
 const app = express();
@@ -48,6 +50,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/courses', coursesRouter);
 app.use('/tee-times', teeTimesRouter);
+app.use('/api', apisRouter);
 
 
 

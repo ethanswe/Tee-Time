@@ -4,6 +4,7 @@ include utils.pug
 
 append head
   link(rel='stylesheet' href='/stylesheets/tee-times.css')
+  script(async defer src='/javascripts/tee-times-join-edit-delete.js')
 
 
 include utils.pug
@@ -15,10 +16,7 @@ block content
     '/tee-times/create',
     'Create A New TeeTime'
   )
-  //- if teeTimes
-  //-   each teeTime in teeTimes
-  //-     .teeTime-container
-  //-       h2 #{teeTimes.dateTime}
+
   each teeTime in teeTimes
     .grid-container
       .grid-item__1
@@ -46,8 +44,15 @@ block content
       if user
         .grid-item__3
           .grid-button
-            button Join
-
             if (teeTime.ownerId === user.id)
-              button Edit
-              button Delete
+              button.edit-button(id=teeTime.id) Edit
+              button.delete-button(id=teeTime.id) Delete
+            else
+              if teeTime.isJoined(user.id)
+                button.unjoin-button(id=teeTime.id) Unjoin
+              else if teeTime.isFull()
+                button.full-button(id=teeTime.id) Full
+              else
+                button.join-button(id=teeTime.id) Join
+                
+    //- .form-container

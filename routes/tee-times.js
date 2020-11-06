@@ -9,25 +9,30 @@ const {
   teeTimeValidators
 } = require('./utils');
 
+
 // GET TEETIMES SPLASH PAGE //
 router.get('/', asyncHandler(async (req, res) => {
   let teeTimes = await db.TeeTime.findAll({
     order: ['dateTime'],
-    include: [db.Course, db.PlayStyle, db.User, {
-      model: db.Course,
-      include: db.City
-    }]
+    include: [db.Course, db.PlayStyle, db.User, 
+      {
+        model: db.Course,
+        include: db.City
+      }, {
+        association: 'Users'
+      }]
   });
+
   res.render('tee-times', { title: 'TeeTimes', teeTimes });
 }));
 
 
 // GET CREATE TEETIME FORM //
 router.get(
-  '/create', 
+  '/create',
+  requireAuth,
   csrfProtection, 
   asyncHandler(async (req, res) => {
-  // const cities = await db.City.findAll({ order: ['name'] });
   const courses = await db.Course.findAll();
   const playStyles = await db.PlayStyle.findAll();
   const teeTime = {}
@@ -78,9 +83,10 @@ router.post(
 
   if (am_pm === 'pm') hour += 12;
 
-  const user = res.locals.user
-  const date = new Date(year, month - 1, day, hour, minute, 0)
-  const ownerId = user.id
+  // const isFull = 
+  const user = res.locals.user;
+  const date = new Date(year, month - 1, day, hour, minute, 0);
+  const ownerId = user.id;
 
   const teeTime = await db.TeeTime.build({
     dateTime: date,
@@ -91,12 +97,14 @@ router.post(
     playStyleId
   })
 
-  // console.log(date);
-
   const validationErrors = validationResult(req)
 
     if (validationErrors.isEmpty()) {
       await teeTime.save();
+      await db.UserTeeTime.create({ 
+        userId: res.locals.user.id,
+        teeTimeId: teeTime.id
+      })
       res.redirect(`/users/${user.id}`);
 
     } else {
@@ -116,13 +124,13 @@ router.post(
 
 }));
 
-router.delete(
+router.post(
   '/:id(\\d+)', 
   requireAuth, 
   asyncHandler(async(req, res) => {
   const teeTime = db.TeeTime.findByPk(req.params.id);
-  await db.TeeTime.destroy(teeTime)
-  res.redirect('/tee-times')
+  await db.TeeTime.destroy(teeTime);
+  res.redirect('/tee-times');
 }))
 
 module.exports = router;
