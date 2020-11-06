@@ -11,7 +11,7 @@ const {
 
 // GET TEETIMES SPLASH PAGE //
 router.get('/', asyncHandler(async (req, res) => {
-  const teeTimes = await db.TeeTime.findAll({
+  let teeTimes = await db.TeeTime.findAll({
     order: ['dateTime'],
     include: [db.Course, db.PlayStyle, db.User, {
       model: db.Course,
@@ -24,7 +24,10 @@ router.get('/', asyncHandler(async (req, res) => {
 
 
 // GET CREATE TEETIME FORM //
-router.get('/create', csrfProtection, asyncHandler(async (req, res) => {
+router.get(
+  '/create', 
+  csrfProtection, 
+  asyncHandler(async (req, res) => {
   // const cities = await db.City.findAll({ order: ['name'] });
   const courses = await db.Course.findAll();
   const playStyles = await db.PlayStyle.findAll();
@@ -39,27 +42,28 @@ router.get('/create', csrfProtection, asyncHandler(async (req, res) => {
 }))
 
 
-router.get('/', asyncHandler(async(req, res) => {
-  // const {  }
-  const filteredCourses = await db.Course.findAll({
-    where: {
-      minPrice: {
-        [Op.gte]: amount
-      },
-      maxPrice: {
-        [Op.lte]: amount
-      }
-    }
-  });
-    res.render('tee-times', {
-      filteredCourses,
-      csrfToken: req.csrfToken(),
-    })
-}));
+// router.get('/', asyncHandler(async(req, res) => {
+//   // const {  }
+//   const filteredCourses = await db.Course.findAll({
+//     where: {
+//       minPrice: {
+//         [Op.gte]: amount
+//       },
+//       maxPrice: {
+//         [Op.lte]: amount
+//       }
+//     }
+//   });
+//     res.render('tee-times', {
+//       filteredCourses,
+//       csrfToken: req.csrfToken(),
+//     })
+// }));
 
 
 // POST NEW TEETIME //
-router.post('/',
+router.post(
+  '/',
   requireAuth,
   teeTimeValidators,
   csrfProtection,
@@ -113,8 +117,13 @@ router.post('/',
 
 }));
 
-router.delete('/:id(\\d+)', requireAuth, (req, res) => {
-
-})
+router.delete(
+  '/:id(\\d+)', 
+  requireAuth, 
+  asyncHandler(async(req, res) => {
+  const teeTime = db.TeeTime.findByPk(req.params.id);
+  await db.TeeTime.destroy(teeTime)
+  res.redirect('/tee-times')
+}))
 
 module.exports = router;

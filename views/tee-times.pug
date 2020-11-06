@@ -22,25 +22,32 @@ block content
   each teeTime in teeTimes
     .grid-container
       .grid-item__1
-        h2 #{teeTime.dateTime}
+        h2 #{teeTime.formatDate()}
+        h2 #{teeTime.formatTime()}
       .grid-item__2
         .grid-event__details
+          h2.category__title Details:
           h2 #{teeTime.description}
         .grid-event__course
-          h2 Location: #{teeTime.Course.name}
+          h2.category__title Location:
+          h2 #{teeTime.Course.name}
         .grid-event__numPlayers
-          h2 Number of players: #{teeTime.numPlayers}
+          span.category__title Number of players: 
+          span #{teeTime.numPlayers}
         //- .grid-event__owner
         //-   h2 #{teeTime.User.firstName} #{teeTime.User.lastName}
         .grid-event__play-style
-          h2 Play style: #{teeTime.PlayStyle.name}
+          h2.category__title Play Style:
+          h2 #{teeTime.PlayStyle.name}
         .grid-event__price
           .price-range
-            h2 Price range: $#{teeTime.Course.minPrice} - $#{teeTime.Course.maxPrice}
-      .grid-item__3
-        .grid-button
-          button Join
-          - var isOwner = (teeTime.ownerId === teeTime.User.id)
-          if (teeTime.ownerId = teeTime.User.id)
-            button Edit
-            button Delete
+            h2.category__title Price Range:
+            h2 $#{teeTime.Course.minPrice} - $#{teeTime.Course.maxPrice}
+      if user
+        .grid-item__3
+          .grid-button
+            button Join
+
+            if (teeTime.ownerId === user.id)
+              button Edit
+              button Delete

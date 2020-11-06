@@ -39,8 +39,15 @@
 footer {
   overflow: auto;
   padding: 4px 0;
-  display: block;
 }
+
+/* footer {
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 650px;
+  text-align: center;
+  color: white;
+} */
 
 .footer-container {
   width: 100%;
@@ -52,17 +59,19 @@ footer {
 }
 .footer-container__text {
   display: flex;
-  width: 100%;
+  margin: 0 auto;
+  width: 60%;
 }
 
 .footer-container__links {
   text-align: left;
   margin: 20px;
+  height: 150px;
 }
 
 .footer-container__links a {
   display: block;
-  padding: 20px;
+  padding: 8px;
   color: black;
   font-weight: 700;
 }
@@ -72,7 +81,7 @@ footer {
   margin-right: 0;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   text-align: left;
   line-height: 1.5em;
   width: 700px;
@@ -88,14 +97,6 @@ a:hover {
   color: rgb(255, 115, 0);
   font-weight: 700;
   text-decoration: none;
-}
-
-footer {
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 650px;
-  text-align: center;
-  color: white;
 }
 
 
