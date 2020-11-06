@@ -47,12 +47,15 @@ block content
             if (teeTime.ownerId === user.id)
               button.edit-button(id=teeTime.id) Edit
               button.delete-button(id=teeTime.id) Delete
+
             else
               if teeTime.isJoined(user.id)
-                button.unjoin-button(id=teeTime.id) Unjoin
+                button.joined-button(id=teeTime.id) Joined
               else if teeTime.isFull()
                 button.full-button(id=teeTime.id) Full
               else
                 button.join-button(id=teeTime.id) Join
                 
-    //- .form-container
+    .form-container
+      form(action='/api/tee-times/:id' method='put')
+      
