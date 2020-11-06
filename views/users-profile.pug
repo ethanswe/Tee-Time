@@ -35,3 +35,7 @@ block content
       h2 Want to tee off?
     .user-profile-button
       button Find Tee Times
+    .user-profile-events
+      each event in currentEvents
+        h2 Your Events: #{event.TeeTime.dateTime} 
+        h6 #{event.TeeTime.description}
