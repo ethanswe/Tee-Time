@@ -9,6 +9,7 @@ const {
   teeTimeValidators
 } = require('./utils');
 
+
 // GET TEETIMES SPLASH PAGE //
 router.get('/', asyncHandler(async (req, res) => {
   let teeTimes = await db.TeeTime.findAll({
@@ -27,7 +28,6 @@ router.get(
   '/create', 
   csrfProtection, 
   asyncHandler(async (req, res) => {
-  // const cities = await db.City.findAll({ order: ['name'] });
   const courses = await db.Course.findAll();
   const playStyles = await db.PlayStyle.findAll();
   const teeTime = {}
@@ -91,6 +91,8 @@ router.post(
     playStyleId
   })
 
+  console.log(courseId);
+  console.log(playStyleId);
   // console.log(date);
 
   const validationErrors = validationResult(req)

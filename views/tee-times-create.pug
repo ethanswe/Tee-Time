@@ -26,6 +26,7 @@ block content
     .form-container
       form(action='/tee-times' method='post' class='tee-times-create__form')
         input(type='hidden' name='_csrf' value=csrfToken)
+        
         select(name='courseId' value=teeTime.courseId)
           option(value='') -- please select a course --
           each course in courses

@@ -120,6 +120,7 @@ button {
   max-width: 300px;
   display: inline;
   padding: 15px 20px;
+  cursor: pointer;
 }
 
 button:hover {
