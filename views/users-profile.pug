@@ -36,8 +36,8 @@ block content
     .user-profile-button
       a(href='/tee-times')
         button Find Tee Times
-    .user-profile-events
-      each event in currentEvents
-        //- if (event.userId === user.id)
-        h2 Your Events: #{event.TeeTime.dateTime} 
-        h6 #{event.TeeTime.description}
+  .user-profile-events
+    each event in currentEvents
+      //- if (event.userId === user.id)
+      h2 Your Events: #{event.TeeTime.dateTime} 
+      h6 #{event.TeeTime.description}

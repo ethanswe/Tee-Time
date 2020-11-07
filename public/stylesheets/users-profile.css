@@ -20,14 +20,14 @@
     "profile stats play"
     "name handicap button"
     "email city ."
-    "age events events"
-    "bio events events"
+    "age bio ."
     ;
     grid-template-columns: 25% 25% 50%;
-    grid-template-rows: 33% 33% 33%;
+    grid-template-rows: repeat(4, 100px);
     justify-items: center;
     padding: 10px;
-
+    width: 800px;
+    margin: 0 auto;
 }
 .user-profile-info{
     grid-area: profile;
@@ -116,6 +116,6 @@
     text-decoration: underline;
 }
 
-footer {
+/* footer {
     visibility: hidden;
-}
+} */
