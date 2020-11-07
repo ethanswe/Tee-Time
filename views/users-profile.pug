@@ -34,8 +34,10 @@ block content
     .user-profile-play
       h2 Want to tee off?
     .user-profile-button
-      button Find Tee Times
+      a(href='/tee-times')
+        button Find Tee Times
     .user-profile-events
       each event in currentEvents
+        //- if (event.userId === user.id)
         h2 Your Events: #{event.TeeTime.dateTime} 
         h6 #{event.TeeTime.description}
