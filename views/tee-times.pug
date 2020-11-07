@@ -46,7 +46,8 @@ block content
           .grid-button
             if (teeTime.ownerId === user.id)
               button.edit-button(id=teeTime.id) Edit
-              button.delete-button(id=teeTime.id) Delete
+              //- form(action=`/tee-times/${teeTime.id}/delete`)
+              button.delete-button(type='submit' id=teeTime.id) Delete
 
             else
               if teeTime.isJoined(user.id)
@@ -61,6 +62,6 @@ block content
       form(action=`/api/tee-times/${teeTime.id}` method='put' class='tee-times-edit__form')
 
         include tee-times-create-formData.pug
-        +formData(teeTime, teeTime.playStyle, teeTime.course)
+        +formData(teeTime)
 
         button.update-button(type='submit' id=teeTime.id) Update

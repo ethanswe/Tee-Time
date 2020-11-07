@@ -52,12 +52,35 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'TeeTime',
   });
+
   TeeTime.prototype.formatDate = function() {
     return format(this.dateTime, "ddd, mmm dd")
   }
+
   TeeTime.prototype.formatTime = function() {
     return format(this.dateTime, "h:MM TT")
   }
+
+  TeeTime.prototype.getHour = function() {
+    return format(this.dateTime, "h")
+  }
+
+  TeeTime.prototype.getMinute = function() {
+    return format(this.dateTime, "MM")
+  }
+
+  TeeTime.prototype.getMonth = function() {
+    return format(this.dateTime, "mm")
+  }
+
+  TeeTime.prototype.getDay = function() {
+    return format(this.dateTime, "dd")
+  }
+
+  TeeTime.prototype.getYear = function() {
+    return format(this.dateTime, "yyyy")
+  }
+
   TeeTime.prototype.isJoined = function(userId) {
     const users = this.Users;
     const attendees = users.map(user => user.id);
