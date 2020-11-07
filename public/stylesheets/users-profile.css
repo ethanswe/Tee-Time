@@ -20,19 +20,21 @@
     "profile stats play"
     "name handicap button"
     "email city ."
-    "age . events"
-    "bio . events"
+    "age bio ."
     ;
     grid-template-columns: 25% 25% 50%;
-    grid-template-rows: 33% 33% 33%;
+    grid-template-rows: repeat(4, 100px);
     justify-items: center;
-
+    padding: 10px;
+    width: 800px;
+    margin: 0 auto;
 }
 .user-profile-info{
     grid-area: profile;
 
 
 }
+
 
 /* .user-profile-container {
     border-style: groove;
@@ -77,6 +79,17 @@
 
 .user-profile-events {
     grid-area: events;
+    margin: 10px auto;
+    max-width: 1000px;
+    display: flex;
+    justify-content: left; 
+    flex-direction: column;
+}
+
+.user-profile-events h2, h6 {
+    display: block;
+    padding: 8px 0;
+    
 }
 
 .user-profile-info h2 {
@@ -102,3 +115,7 @@
 .user-profile-cityId h2 {
     text-decoration: underline;
 }
+
+/* footer {
+    visibility: hidden;
+} */
