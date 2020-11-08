@@ -12,7 +12,7 @@ const {
 
 // GET TEETIMES SPLASH PAGE //
 router.get('/', asyncHandler(async (req, res) => {
-  let teeTimes = await db.TeeTime.findAll({
+  const teeTimes = await db.TeeTime.findAll({
     order: ['dateTime'],
     include: [db.Course, db.PlayStyle, db.User,
       {
@@ -23,7 +23,18 @@ router.get('/', asyncHandler(async (req, res) => {
       }]
   });
 
-  res.render('tee-times', { title: 'TeeTimes', teeTimes });
+  teeTimes.forEach(teeTime => {
+    teeTime.hour = teeTime.getHour();
+    teeTime.minute = teeTime.getMinute();
+    teeTime.month = teeTime.getMonth();
+    teeTime.day = teeTime.getDay();
+    teeTime.year = teeTime.getYear();
+  })
+  
+  const courses = await db.Course.findAll();
+  const playStyles = await db.PlayStyle.findAll();
+
+  res.render('tee-times', { title: 'TeeTimes', teeTimes, courses, playStyles });
 }));
 
 
@@ -45,6 +56,7 @@ router.get(
   })
 }))
 
+
 router.get(
   '/courses/:id(\\d+)/create',
   requireAuth,
@@ -56,9 +68,10 @@ router.get(
   const courses = await db.Course.findAll();
   const playStyles = await db.PlayStyle.findAll();
   const teeTime = {}
+  teeTime.courseId = currentCourse.id
 
   res.render('tee-times-create', {
-    currentCourse,
+    // currentCourse,
     courses,
     playStyles,
     teeTime,
@@ -104,7 +117,6 @@ router.post(
 
   if (am_pm === 'pm') hour += 12;
 
-  // const isFull =
   const user = res.locals.user;
   const date = new Date(year, month - 1, day, hour, minute, 0);
   const ownerId = user.id;
@@ -141,17 +153,7 @@ router.post(
         csrfToken: req.csrfToken(),
       });
     }
-
-
 }));
 
-router.post(
-  '/:id(\\d+)',
-  requireAuth,
-  asyncHandler(async(req, res) => {
-  const teeTime = db.TeeTime.findByPk(req.params.id);
-  await db.TeeTime.destroy(teeTime);
-  res.redirect('/tee-times');
-}))
 
 module.exports = router;

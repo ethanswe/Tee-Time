@@ -8,9 +8,9 @@ append head
 block content
   +banner(
     'Sign Up to Start Playing',
-    '1000s of strangers across the world have come together to enjoy the sport of golf.',
-    '/',
-    null
+    'join our community of golfers.',
+    '/login',
+    'Already have an account?'
   )
 
   main
@@ -30,7 +30,7 @@ block content
         input(type='number' name='age' placeholder='Age' value=user.age)
         textarea(name='bio' placeholder='Tell us about yourself' value=user.bio)
         select(name='cityId')
-          option(value='') -- please select a city --
+          option(value='' class='default') -- please select a city --
           each city in cities
             option(value=city.id)= city.name
         input(type='number' name='handicap' placeholder='Handicap' value=user.handicap)
@@ -41,5 +41,3 @@ block content
         br
         div(class='submit')
           button(type='submit' class='submit-button') Submit
-        div
-          p: a(href='/login') Already have an account?

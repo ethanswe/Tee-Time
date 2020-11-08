@@ -22,6 +22,7 @@ html
           div(class="header-nav__link-courses") Courses
         a(href='/tee-times' class='header-nav__link')
           div(class="header-nav__link-tee-times") TeeTimes
+
         if authenticated
           a(href=`/users/${user.id}` class='header-nav__link')
             div(class='header-nav__link-profile') Profile
@@ -32,6 +33,9 @@ html
             div(class='header-nav__link-sign-in') Sign In
           a(href='/signup' class='header-nav__link')
             button(class="header-nav__link-sign-up" id="special-button") Sign Up
+
+        a(target='_blank' href='https://github.com/ethanswe/Tee-Time')
+          i(class="github-logo fab fa-github")
 
 
     block content
@@ -51,5 +55,3 @@ html
               a(href='/login') Sign In
           .footer-container__ethos
             p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          .footer__github-logo
-        //- img(src='https://clipart.info/images/ccovers/1499794873github-logo-png.png')

@@ -28,11 +28,11 @@ block content
         select(name='courseId' value=teeTime.courseId)
           option(value='') -- please select a course --
           each course in courses
-            option(value=course.id, selected=(course.id === currentCourse.id))= course.name
-        select(name='playStyleId' value=teeTime.playStyleId)
+            option(value=course.id, selected=(course.id === teeTime.courseId))= course.name
+        select(name='playStyleId')
           option(value='') -- please select a play style --
           each playStyle in playStyles
-            option(value=playStyle.id)= playStyle.name
+            option(value=playStyle.id selected=(playStyleId))= playStyle.name
 
         .form-group-1
           label(for='date') Date:
