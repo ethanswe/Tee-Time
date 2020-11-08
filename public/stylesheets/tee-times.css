@@ -75,7 +75,6 @@
   grid-area: description;
   word-wrap: normal;
   padding: 10px;
-  overflow: auto;
 }
 
 .grid-event__numPlayers {

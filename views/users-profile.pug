@@ -4,6 +4,7 @@ include utils.pug
 
 append head
   link(rel='stylesheet' href='/stylesheets/users-profile.css')
+  script(async defer src='/javascripts/tee-times-join-edit-delete.js')
 
 
 block content
@@ -36,8 +37,6 @@ block content
     .user-profile-button
       a(href='/tee-times')
         button Find Tee Times
-  .user-profile-events
-    each event in currentEvents
-      //- if (event.userId === user.id)
-      h2 Your Events: #{event.TeeTime.dateTime} 
-      h6 #{event.TeeTime.description}
+  
+  include user-dashboard-plugin.pug
+  

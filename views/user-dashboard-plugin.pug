@@ -1,0 +1,50 @@
+
+each teeTime in teeTimes
+  if teeTime.isJoined(user.id)
+    .grid-container
+      .grid-item__1
+        h2 #{teeTime.formatDate()}
+        h2 #{teeTime.formatTime()}
+      .grid-item__2
+        .grid-event__details
+          h2.category__title Details:
+          h2 #{teeTime.description}
+        .grid-event__course
+          h2.category__title Location:
+          h2 #{teeTime.Course.name}
+        .grid-event__numPlayers
+          span.category__title Number of players: 
+          span #{teeTime.numPlayers}
+        .grid-event__play-style
+          h2.category__title Play Style:
+          h2 #{teeTime.PlayStyle.name}
+        .grid-event__price
+          .price-range
+            h2.category__title Price Range:
+            h2 $#{teeTime.Course.minPrice} - $#{teeTime.Course.maxPrice}
+      if user
+        .grid-item__3
+          .grid-button
+            if (teeTime.ownerId === user.id)
+              button.edit-button(id=`edit-button-${teeTime.id}`) Edit
+              button.delete-button(type='submit' id=`delete-button-${teeTime.id}`) Delete
+
+            else
+              if teeTime.isFull(user.id)
+                button.full-button Full
+              else
+                if teeTime.isJoined(user.id)
+                  button.join-button.hidden(id=`join-button-${teeTime.id}`) Join
+                  button.unjoin-button(id=`unjoin-button-${teeTime.id}`) Unjoin
+                else
+                  button.join-button(id=`join-button-${teeTime.id}`) Join
+                  button.unjoin-button.hidden(id=`unjoin-button-${teeTime.id}`) Unjoin
+                
+
+    .form-container.hidden.slide-in-top(id=`form-container-${teeTime.id}`)
+      form(action=`/api/tee-times/${teeTime.id}` method='put' class='tee-times-edit__form')
+
+        include tee-times-create-formData.pug
+        +formData(teeTime)
+
+        button.update-button(type='submit' id=teeTime.id) Update
