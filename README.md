@@ -1,6 +1,83 @@
-# Express Project Skeleton
+# Welcome to Tee Time!
 
-Use this project skeleton as a starting point for structuring your app. Things to note
-* Sequelize configuration has not yet been added -- you will need to set that up yourself
-* You may find yourself wanting to use javascript -- js files can be added in `public/javascripts` and should be appended to the Pug templates as needed
-* CSS files can go in `public/stylesheets` and also will need to be added to Pug templates
+TeeTime is a social media platform for golfers to offer the golf community the ability to find tee times available in their area. Users are able to see existing tee times and find golf courses in their area, as well as creating their own tee times for others to join.
+
+
+## How to start development environment
+To start the development environment, clone the git repository, npm install, npm start, and navigate to localhost:8080.
+
+## Technologies used
+JavaScript, Express, PostgreSQL w/ Sequelize, CSS, Pug
+
+## Our live site:
+https://tee-time-aa.herokuapp.com/
+
+## Our Wiki docs:
+https://github.com/ethanswe/Tee-Time/wiki
+
+## Our two favorite features:
+- Tee Time Join, create, update, delete functionality
+The user can either go to a course and create a tee time off of that course profile page, or they can look through a list of available tee-times. From there, they can either join an existing event, create a new one, update an existing event, or delete their event. Each event displays the course information (description, photo of the course, the price range) and the playstyle of the event (duos, scramble, tournament, foursome). 
+- Golf course profiles
+Each course has their own unique page to display their course information. All course profiles are linked to the back-end database so that a specific picture of that course automatically renders for the user. Users have the ability to create an event from each golf course's profile that will autofill the course information for their event. 
+
+## Roadblocks we had
+- Delete functionality 
+- Update functionality
+- Generalized styling 
+- Autofilling course information when navigating from course profile to create an event 
+
+## Code snippets 
+
+### Delete functionality
+```
+document.querySelectorAll('.delete-button').forEach(button => {
+  button.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const teeTimeId = e.target.id.split('-')[2];
+
+    await fetch(`/api/tee-times/${teeTimeId}/delete`, {
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ teeTimeId })
+    })
+    window.location.reload();
+  })
+})
+
+router.delete('/tee-times/:id(\\d+)/delete', 
+  requireAuth, 
+  asyncHandler(async(req, res) => {
+    const { teeTimeId } = req.body;
+    console.log(teeTimeId);
+    const teeTime = await db.TeeTime.findByPk(teeTimeId);
+    await db.UserTeeTime.destroy({ where: { teeTimeId }})
+    console.log(teeTime);
+    await teeTime.destroy();
+    res.json()
+}))
+```
+### Dynamic button rendering
+```
+ if user
+        .grid-item__3
+          .grid-button
+            if (teeTime.ownerId === user.id)
+              button.edit-button(id=`edit-button-${teeTime.id}`) Edit
+              button.delete-button(type='submit' id=`delete-button-${teeTime.id}`) Delete
+
+            else
+              if teeTime.isFull(user.id)
+                button.full-button Full
+              else
+                if teeTime.isJoined(user.id)
+                  button.join-button.hidden(id=`join-button-${teeTime.id}`) Join
+                  button.unjoin-button(id=`unjoin-button-${teeTime.id}`) Unjoin
+                else
+                  button.join-button(id=`join-button-${teeTime.id}`) Join
+                  button.unjoin-button.hidden(id=`unjoin-button-${teeTime.id}`) Unjoin
+                
+```
+
