@@ -48,10 +48,6 @@ form > div {
     url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg);
 }
 
-.header-banner__button-link {
-  visibility: hidden;
-}
-
 .banner__text div {
   max-width: 400px;
   align-self: center;
@@ -68,11 +64,11 @@ form > div {
 }
 
 ::placeholder {
-  /* font-size: 1.3em; */
-  color: black
+  color: rgb(80, 80, 80);
 }
 
 select {
-  color: black;
   font-size: 1.3em;
+  color: black;
 }
+

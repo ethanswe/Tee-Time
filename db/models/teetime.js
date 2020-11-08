@@ -86,8 +86,11 @@ module.exports = (sequelize, DataTypes) => {
     const attendees = users.map(user => user.id);
     return attendees.includes(userId)
   }
-  TeeTime.prototype.isFull = function() {
-    return this.Users.length === this.numPlayers
+  TeeTime.prototype.isFull = function(userId) {
+    if (!this.isJoined(userId)) {
+      return this.Users.length === this.numPlayers
+    }
+    return false
   }
   return TeeTime;
 };

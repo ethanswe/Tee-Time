@@ -25,19 +25,17 @@
   margin-right: auto;
   box-sizing: border-box;
   padding: 0 1em;
-  max-width: 1020px;
+
   text-align: center;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .page__text {
   background-color: rgb(3, 71, 3);
   color: white;
-  display: block;
-  margin-right: 2.35%;
-  width: 35%;
-  margin-bottom: 0;
+  /* display: block; */
+  width: 250px;
   text-align: center;
   line-height: 1.625;
 }
@@ -45,11 +43,9 @@
 .page__text-last {
   background-color: rgb(3, 71, 3);
   color: white;
-  margin-right: 0;
-  margin: 0;
   float: left;
-  display: block;
-  width: 31.76%;
+  /* display: block; */
+  width: 250px;
   text-align: center;
   line-height: 1.625;
 }

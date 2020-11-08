@@ -10,15 +10,37 @@ const { validationResult } = require('express-validator');
 const { requireAuth } = require('../../auth');
 
 
-// POST NEW USERTEETIME ASSOCIATION
+// POST NEW USERTEETIME ASSOCIATION //
 router.post('/user-tee-times', requireAuth, asyncHandler(async(req, res) => {
   const userId = res.locals.user.id;
-  let { teeTimeId } = req.body
-  teeTimeId = parseInt(teeTimeId, 10)
+  let { teeTimeId } = req.body;
+  console.log('thie is the teeTimeID', teeTimeId);
+  // console.log('parsed teeTimeId', teeTimeId);
 
   await db.UserTeeTime.create({ userId, teeTimeId });
   res.json();
 }))
+
+
+// DELETE USERTEETIME ASSOCIATION //
+router.delete('/user-tee-times', requireAuth, asyncHandler(async(req, res) => {
+  const userId = res.locals.user.id;
+  let { teeTimeId } = req.body
+
+  console.log('this is the teeTimeId', teeTimeId);
+  console.log('this is the userId', userId);
+
+  const userTeeTime = await db.UserTeeTime.findOne({
+    where: {
+      userId,
+      teeTimeId
+    }
+  })
+
+  await userTeeTime.destroy();
+  res.json();
+}))
+
 
 
 // PUT REQUEST TO UPDATE TEETIMES //
@@ -71,24 +93,6 @@ router.put('/tee-times/:id(\\d+)',
     });
   }
 }))
-
-
-// DELETE USERTEETIME ASSOCIATION //
-// router.delete('/user-tee-times', requireAuth, asyncHandler(async(req, res) => {
-//   const userId = res.locals.user.id;
-//   let { teeTimeId } = req.body
-//   teeTimeId = parseInt(teeTimeId, 10)
-
-//   const userTeeTime = await db.UserTeeTime.findOne({
-//     where: {
-//       userId,
-//       teeTimeId
-//     }
-//   })
-
-//   await userTeeTime.destroy();
-//   res.json();
-// }))
 
 
 router.delete('/tee-times/:id(\\d+)/delete', 

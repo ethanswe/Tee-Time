@@ -30,11 +30,15 @@
   display: flex;
 }
 
+.header-nav__logo a div {
+  margin-top: 5px;
+}
+
 .fa-golf-ball {
   font-size: 38px;
   background-color: rgb(3, 71, 3);
   margin: 0 12px;
-  color: honeydew
+  color: honeydew;
 }
 
 .header-nav__group > a > div {
@@ -96,7 +100,6 @@ footer {
 }
 
 a > span:hover,
-/* a > i:hover, */
 a:hover {
   color: rgb(255, 115, 0);
   font-weight: 700;
@@ -117,7 +120,7 @@ button {
   font-weight: 600;
   border-radius: 10px;
   font-size: 18px;
-  max-width: 300px;
+  max-width: 250px;
   display: inline;
   padding: 15px 20px;
   cursor: pointer;
@@ -131,6 +134,10 @@ button:hover {
   color: white;
   text-transform: uppercase;
   transform: translateY(-1px);
+}
+
+button:focus {
+  outline: none;
 }
 
 .banner {
@@ -188,4 +195,20 @@ button:hover {
   border: 2px solid forestgreen;
   box-shadow: 0 0 3px 2px forestgreen;
   color: white;
+}
+
+i.github-logo {
+  font-size: 40px;
+  color: white;
+  background-color: rgb(3, 71, 3);
+}
+
+i.github-logo:hover {
+  color: rgb(255, 115, 0);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
