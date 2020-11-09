@@ -90,6 +90,18 @@ router.get('/login', csrfProtection, (req, res) => {
   });
 });
 
+router.post('/login/demo', 
+  asyncHandler(async(req, res) => {
+  const demoUser = await db.User.findByPk(1);
+
+  req.session.auth = {
+    userId: demoUser.id,
+  };
+  req.session.save((err) => {
+    return res.json();
+  });
+}))
+
 
 // POST EXISTING USER LOGIN //
 router.post('/login', 

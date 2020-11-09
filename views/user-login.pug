@@ -2,6 +2,7 @@ extends layout.pug
 
 append head
   link(rel='stylesheet' href='/stylesheets/login.css')
+  script(async defer src='/javascripts/demo-login.js')
 
 include utils.pug
 
@@ -31,3 +32,5 @@ block content
       br
       div(class='py-4')
         button(type='submit' class='btn btn-primary') Login
+      br
+      div: button(type='button' class='demo-login-btn') Demo Login

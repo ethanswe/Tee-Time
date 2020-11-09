@@ -4,6 +4,7 @@ include utils.pug
 
 append head
   link(rel='stylesheet' href='/stylesheets/signup.css')
+  script(async defer src='/javascripts/demo-login.js')
 
 block content
   +banner(
@@ -41,3 +42,5 @@ block content
         br
         div(class='submit')
           button(type='submit' class='submit-button') Submit
+        br
+        div: button(type='button' class='demo-login-btn') Demo Login
