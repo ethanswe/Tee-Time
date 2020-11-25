@@ -14,7 +14,7 @@ const { requireAuth } = require('../../auth');
 router.post('/user-tee-times', requireAuth, asyncHandler(async(req, res) => {
   const userId = res.locals.user.id;
   let { teeTimeId } = req.body;
-  console.log('thie is the teeTimeID', teeTimeId);
+  console.log('this is the teeTimeID', teeTimeId);
   // console.log('parsed teeTimeId', teeTimeId);
 
   await db.UserTeeTime.create({ userId, teeTimeId });
