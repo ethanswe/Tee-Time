@@ -51,10 +51,8 @@ router.delete('/tee-times/:id(\\d+)/delete',
   requireAuth, 
   asyncHandler(async(req, res) => {
     const { teeTimeId } = req.body;
-    console.log(teeTimeId);
     const teeTime = await db.TeeTime.findByPk(teeTimeId);
     await db.UserTeeTime.destroy({ where: { teeTimeId }})
-    console.log(teeTime);
     await teeTime.destroy();
     res.json()
 }))
