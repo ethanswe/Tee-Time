@@ -1,5 +1,4 @@
 
-// console.log('hello world');
 
 
 document.querySelectorAll('.join-button').forEach(button => {
