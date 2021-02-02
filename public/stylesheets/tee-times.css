@@ -8,6 +8,12 @@
     url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg);
 }
 
+.sign-in-prompt {
+  display: flex;
+  justify-content: center;
+  margin: 25px;
+}
+
 .grid-container {
   /* display: flex;
   flex-direction: row; */
@@ -113,6 +119,7 @@
 .unjoin-button,
 .unjoin-button:hover {
   background-color: rgb(255, 115, 0);
+  border: none;
 }
 
 .full-button,
@@ -121,6 +128,7 @@
   transform: none;
   box-shadow: none;
   cursor: default;
+  border: none;
 }
 
 

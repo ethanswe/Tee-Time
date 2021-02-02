@@ -7,6 +7,7 @@ const {
   csrfProtection,
   teeTimeValidators
 } = require('./utils');
+const { Op } = require('sequelize');
 
 
 
@@ -19,12 +20,28 @@ router.get('/', asyncHandler(async(req, res) => {
 }))
 
 
+router.post('/search', asyncHandler(async(req, res) => {
+  const { searchTerm } = req.body;
+  const courses = await db.Course.findAll({
+    include: db.City,
+    where: {
+      name: {
+        [Op.iLike]: `%${searchTerm}%`
+      }
+    }
+  });
+
+  res.render('courses-splash', { title: 'Courses', courses })
+}))
+
+
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
   const course = await db.Course.findByPk(req.params.id);
   const currentCourse = await db.Course.findByPk(req.params.id);
 
   res.render('courses-profile', { title: course.name, course, currentCourse })
 }))
+
 
 // router.get(
 //   '/id(\\d+)/create',

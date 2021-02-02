@@ -102,7 +102,7 @@ footer {
 a > span:hover,
 a:hover {
   color: rgb(255, 115, 0);
-  font-weight: 700;
+  /* font-weight: 700; */
   text-decoration: none;
 }
 

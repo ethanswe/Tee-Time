@@ -17,6 +17,10 @@ block content
     'Create A New TeeTime'
   )
 
+  if !user
+    form(class='sign-in-prompt' action='/login' method='GET')
+      button(type='submit') Sign in to join and create teetimes
+
   each teeTime in teeTimes
     .grid-container
       .grid-item__1
