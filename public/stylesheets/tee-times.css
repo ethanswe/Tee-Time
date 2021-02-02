@@ -113,6 +113,7 @@
 .unjoin-button,
 .unjoin-button:hover {
   background-color: rgb(255, 115, 0);
+  border: none;
 }
 
 .full-button,
@@ -121,6 +122,7 @@
   transform: none;
   box-shadow: none;
   cursor: default;
+  border: none;
 }
 
 
