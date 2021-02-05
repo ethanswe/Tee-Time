@@ -41,17 +41,33 @@ html
     block content
 
 
+    //- footer
+    //-   .footer-container
+    //-     .footer-container__text
+    //-       .footer-container__links
+    //-         a(href='/courses') Courses
+    //-         a(href='/tee-times') TeeTimes
+    //-         if authenticated
+    //-           a(href=`/users/${user.id}`) Profile
+    //-           a(href='/logout') Sign Out
+    //-         else
+    //-           a(href='/signup') Sign Up
+    //-           a(href='/login') Sign In
+    //-       .footer-container__ethos
+    //-         p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
     footer
       .footer-container
-        .footer-container__text
-          .footer-container__links
-            a(href='/courses') Courses
-            a(href='/tee-times') TeeTimes
-            if authenticated
-              a(href=`/users/${user.id}`) Profile
-              a(href='/logout') Sign Out
-            else
-              a(href='/signup') Sign Up
-              a(href='/login') Sign In
-          .footer-container__ethos
-            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        h3 Meet the Dev Team!
+        .dev-card
+          a(target='_blank' href='https://www.linkedin.com/in/corbin-armendariz-88a111164/')
+            img(src='https://ca.slack-edge.com/T03GU501J-U017AVBMLE8-c1ef10c99a01-512')
+            .name Corbin Armendariz
+        .dev-card
+          a(target='_blank' href='https://mmckee-dev.com/')
+            img(src='https://ca.slack-edge.com/T03GU501J-U0173CXKZGD-cdadb0380e42-512')
+            .name Maxwell McKee
+        .dev-card
+          a(target='_blank' href='https://www.linkedin.com/in/ethan-schnitzer-894889b8/')
+            img(src='https://ca.slack-edge.com/T03GU501J-U018BVCM2HZ-3eeaf3b5c14e-512')
+            .name Ethan Schnitzer
