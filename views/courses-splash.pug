@@ -16,10 +16,11 @@ block content
   br
   br
   main
-    form(class='course-search' action='/courses/search' method='POST')
-      input(type='text' name='searchTerm' placeholder='Search by Name')
-      button(type='submit') Search
-      button(type='submit') All
+    .course-search__container
+      form(class='course-search' action='/courses/search' method='POST')
+        input(type='text' name='searchTerm' placeholder='Search by Name')
+        button(type='submit') Search
+        button(type='submit') All
     if !courses.length
       h1.course-search__errors Sorry, nothing matches that search term
     - var n = 0;

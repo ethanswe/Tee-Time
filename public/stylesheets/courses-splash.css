@@ -13,10 +13,20 @@
     url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg);
 }
 
+.course-search__container {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+
+  padding-top: 15px;
+  background-color: honeydew;
+}
+
 .course-search {
   display: flex;
   justify-content: center;
   width: 750px;
+  padding-bottom: 10px;
   margin: 0 auto;
   margin-bottom: 50px;
 }
