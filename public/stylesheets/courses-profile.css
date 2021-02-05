@@ -1,138 +1,3 @@
-.course-profile-container {
-  font-family: 'Architects Daughter', cursive;
-  background-color: grey;
-  color: white;
-  text-align: center;
-}
-
-.course-grid-container {
-    display: grid;
-    grid-template-areas:
-    "text text img"
-    "info . button"
-    ;
-    grid-template-columns: 25% 25% 50%;
-    grid-template-rows: 85% 15%;
-    justify-items: center;
-    align-items: center;
-    width: 1200px;
-    margin: 100px auto;
-}
-
-.course-profile-description-container {
-  grid-area: text;
-  flex-direction: column;
-  /* margin: 0 auto; */
-  max-width: 650px;
-  /* margin-top: 10px; */
-  text-align: left;
-  color: black;
-}
-
-.course-profile-info-div {
-    grid-area: info;
-    background-color: white;
-    border: solid black;
-    height: 50px;
-    width: 300px;
-    margin: 20px;
-    padding: 3px;
-    bottom: 45%;
-    left: 1%;
-    /* position: absolute; */
-}
-
-.course-profile-picture {
-    grid-area: img;
-    /* position: absolute; */
-    right: 10px;
-    /* width: auto;
-    height: auto; */
-    max-width: 75%;
-    max-height: 400px;
-    /* height: 500px; */
-    /* margin-right: 10px; */
-    display: flex;
-    justify-content: center;
-    align-items: right;
-    margin: 0 auto;
-
-}
-
-.course-profile-picture img{
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    /* object-fit: contain;
-    display: flex;
-    align-items: center;
-    justify-content: center; */
-}
-
-.course-profile-button{
-    grid-area: button;
-    width: 50%;
-}
-
-/* button {
-  background-color: goldenrod;
-  border-color: goldenrod;
-  border: 2px solid goldenrod;
-  color: white;
-  text-transform: uppercase;
-  font-weight: 600;
-  border-radius: 10px;
-  font-size: 18px;
-  width: 50%;
-  display: inline;
-  padding: 1em 1.5em;
-}
-
-.banner {
-  background-image: linear-gradient(
-      rgba(34, 139, 34, 0.3),
-      rgba(34, 139, 34, 0.3)
-    ),
-    url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg);
-  padding: 32px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: auto;
-  height: 500px;
-}
-
-.banner__text {
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 650px;
-  text-align: center;
-  color: white;
-}
-.banner__text > h1 {
-  font-weight: 600;
-  margin-bottom: 9px;
-  font-size: 2.5em;
-  margin: 0;
-}
-
-.banner__text-subtext {
-  margin-bottom: 36px;
-  display: block;
-  font-size: 0.65em;
-  font-weight: 400;
-}
-
-.banner__container {
-  display: flex;
-  padding: 110px 0;
-  align-items: center;
-  flex-direction: row;
-  background-color: rgba(34, 139, 34, 0);
-}
-
-h1 {
-  color: #fafafa;
-} */
 
 .banner {
       background-image: linear-gradient(
@@ -140,4 +5,52 @@ h1 {
       rgba(52, 229, 241, 0.25)
     ),
     url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg);
+}
+
+.course-profile__banner {
+  width: 100%;
+  background-color: rgb(3, 71, 3);
+  color: honeydew;
+  font-size: 35px;
+  text-align: center;
+  padding: 20px;
+}
+
+.course-profile__container {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  box-sizing: border-box;
+}
+
+.course-profile__group-1 {
+  width: 450px;
+  margin: 30px 40px;
+
+  background-color: ivory;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 12px 0 lightgray;
+}
+
+.course-profile__description {
+  font-size: 22px;
+  line-height: 1.6em;
+}
+
+.course-profile__difficulty {
+  margin: 30px 0;
+  font-size: 18px;
+}
+
+.course-profile__price {
+  margin: 30px 0;
+  font-size: 18px;
+}
+
+.course-profile__container img {
+  margin: 30px 40px;
+  width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px 0 grey;
 }

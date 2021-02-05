@@ -1,4 +1,5 @@
 
+h1.user-teetime-dashboard-header Your TeeTimes
 each teeTime in teeTimes
   if teeTime.isJoined(user.id)
     .grid-container
@@ -13,7 +14,7 @@ each teeTime in teeTimes
           h2.category__title Location:
           h2 #{teeTime.Course.name}
         .grid-event__numPlayers
-          span.category__title Number of players: 
+          span.category__title Number of players:
           span #{teeTime.numPlayers}
         .grid-event__play-style
           h2.category__title Play Style:
@@ -39,7 +40,7 @@ each teeTime in teeTimes
                 else
                   button.join-button(id=`join-button-${teeTime.id}`) Join
                   button.unjoin-button.hidden(id=`unjoin-button-${teeTime.id}`) Unjoin
-                
+
 
     .form-container.hidden.slide-in-top(id=`form-container-${teeTime.id}`)
       form(action=`/api/tee-times/${teeTime.id}` method='put' class='tee-times-edit__form')

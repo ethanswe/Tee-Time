@@ -16,6 +16,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .header-nav__group {
@@ -108,23 +113,12 @@ footer {
   box-shadow: 0 0 12px 6px rgb(255, 115, 0);
 }
 
-
-
-
-
-
-
-
-
-
-
 a > span:hover,
 a:hover {
   color: rgb(255, 115, 0);
   /* font-weight: 700; */
   text-decoration: none;
 }
-
 
 h1 {
   color: #fafafa;
@@ -201,7 +195,7 @@ button:focus {
 
 #special-button {
   color: forestgreen;
-  background-color:honeydew;
+  background-color: honeydew;
   border: 2px solid honeydew;
   text-transform: uppercase;
   padding: 8px 12px;
