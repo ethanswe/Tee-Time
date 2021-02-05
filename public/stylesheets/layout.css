@@ -59,15 +59,9 @@ footer {
 .footer-container {
   width: 100%;
   box-sizing: border-box;
-<<<<<<< HEAD
-  padding: 0 1em;
-}
-.footer-container__text {
-=======
   padding: 20px;
   background-color: rgb(3, 71, 3);
 
->>>>>>> main
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,16 +107,6 @@ footer {
 .dev-card img:hover {
   box-shadow: 0 0 12px 6px rgb(255, 115, 0);
 }
-
-
-
-
-
-
-
-
-
-
 
 a > span:hover,
 a:hover {
