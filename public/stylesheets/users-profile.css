@@ -1,10 +1,5 @@
 @import 'tee-times.css';
 
-/* h1 {
-    background: grey;
-    color: white;
-    text-align: center;
-} */
 .banner {
   background-image: linear-gradient(
       rgba(52, 229, 241, 0.25),
@@ -13,111 +8,137 @@
     url(https://www.discoverybaygolfcourse.com/wp-content/uploads/sites/5191/2015/07/slide2.jpg);
 }
 
-.header-banner__button-link{
-    visibility: hidden;
+.header-banner__button-link {
+  visibility: hidden;
 }
-.user-profile-container {
-    display: grid;
-    grid-template-areas:
-    "profile stats play"
-    "name handicap button"
-    "email city ."
-    "age bio ."
-    ;
-    grid-template-columns: 25% 25% 50%;
-    grid-template-rows: repeat(4, 100px);
-    justify-items: center;
-    padding: 10px;
-    width: 800px;
-    margin: 0 auto;
-}
-.user-profile-info{
-    grid-area: profile;
-
-
-}
-
-
 /* .user-profile-container {
-    border-style: groove;
+  display: grid;
+  grid-template-areas:
+    'profile stats play'
+    'name handicap button'
+    'email city .'
+    'age bio .';
+  grid-template-columns: 25% 25% 50%;
+  grid-template-rows: repeat(4, 100px);
+  justify-items: center;
+  padding: 10px;
+  width: 800px;
+  margin: 0 auto;
 } */
 
-.user-profile-name{
-    grid-area: name;
+.user-profile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 10px;
+  height: 250px;
 }
 
-.user-profile-email{
-    grid-area: email;
+.user-profile-wrapper {
+  height: 100%;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.user-profile-age{
-    grid-area: age;
+.user-profile-wrapper_button {
+  height: 85%;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.user-profile-bio {
-    grid-area:bio;
-
-}
-
-.user-profile-bio h2 {
-    margin-top: 30px;
-}
-.user-profile-stats {
-    grid-area: stats;
-
-}
-
-.user-profile-handicap{
-    grid-area: handicap;
-}
-
-.user-profile-cityId{
-    grid-area: city;
-}
-
-.user-profile-play-container {
-    grid-area: play;
-}
-
-.user-profile-events {
-    grid-area: events;
-    margin: 10px auto;
-    max-width: 1000px;
-    display: flex;
-    justify-content: left; 
-    flex-direction: column;
-}
-
-.user-profile-events h2, h6 {
-    display: block;
-    padding: 8px 0;
-    
+.user-profile-wrapper_second {
+  height: 100%;
+  padding: 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .user-profile-info h2 {
-    font-weight: bold;
+  font-weight: 800;
+  font-size: x-large;
+}
+
+.user-profile-name {
+  padding: 18px;
+}
+
+.user-profile-email {
+  grid-area: email;
+  padding: 18px;
+}
+
+.user-profile-age {
+  grid-area: age;
+  padding: 18px;
+}
+
+.user-profile-bio {
+  grid-area: bio;
+  padding: 18px;
+}
+
+.user-profile-stats {
+  grid-area: stats;
+}
+
+.user-profile-handicap {
+  grid-area: handicap;
+  padding: 18px;
+}
+
+.user-profile-cityId {
+  grid-area: city;
+  padding: 18px;
+}
+
+.user-profile-play-container {
+  grid-area: play;
+}
+
+.user-profile-events {
+  grid-area: events;
+  margin: 10px auto;
+  max-width: 1000px;
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+}
+
+.user-profile-events h2,
+h6 {
+  display: block;
+  padding: 8px 0;
+}
+
+.user-profile-info h2 {
+  font-weight: bold;
 }
 
 .user-profile-stats h2 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .user-profile-play h2 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
-.user-profile-name h2,
-.user-profile-email h2,
-.user-profile-age h2,
-.user-profile-bio h2 {
-    /* text-decoration: underline; */
+.user-profile {
+  display: flex;
+  flex-direction: column;
 }
 
-.user-profile-handicap h2,
-.user-profile-cityId h2 {
-    text-decoration: underline;
+.user-profile-button {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
-
-/* footer {
-    visibility: hidden;
-} */

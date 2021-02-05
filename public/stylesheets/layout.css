@@ -62,7 +62,6 @@ footer {
   margin-right: auto;
   box-sizing: border-box;
   padding: 0 1em;
-
 }
 .footer-container__text {
   display: flex;
@@ -105,7 +104,6 @@ a:hover {
   /* font-weight: 700; */
   text-decoration: none;
 }
-
 
 h1 {
   color: #fafafa;
@@ -182,7 +180,7 @@ button:focus {
 
 #special-button {
   color: forestgreen;
-  background-color:honeydew;
+  background-color: honeydew;
   border: 2px solid honeydew;
   text-transform: uppercase;
   padding: 8px 12px;
