@@ -28,9 +28,7 @@ block content
         if n % 2
           .course-container
             .course-container__img.image-cropper
-              //- img(src='https://dtt3egpp7rvvz.cloudfront.net/content/uploads/2018/04/16151641/crans-sur-sierre-e1523884629576.jpg')
               img(src=`/images/courses/${course.imgPath}`) 
-              //- a(href=`/public/images/courses/${course.imgPath}`) #{course.imgPath}
             .course-container__text.course-container__even
               a(href=`/courses/${course.id}` class='course__name') #{course.name}
               br
@@ -47,6 +45,5 @@ block content
               br
               .course__difficulty Difficulty: #{course.difficulty}
             .course-container__img.image-cropper
-              //- img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_1iyvXxBAAwcp63dsaWlzRVCV_2eFcjT-7Q&usqp=CAU')
               img(src=`/images/courses/${course.imgPath}`) 
             - n += 1

@@ -26,9 +26,7 @@ block content
     form(action='/login' method='post' class='signup__form')
       input(type='hidden' name='_csrf' value=csrfToken)
       input(type='text' name='email', placeholder='Email')
-      //- +field('Email Address', 'email', email)
       input(type='password' name='password' placeholder='Password')
-      //- +field('Password', 'password', null, 'password')
       br
       div(class='py-4')
         button(type='submit' class='btn btn-primary') Login
