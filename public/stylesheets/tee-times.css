@@ -24,10 +24,10 @@
   grid-template-rows: auto;
   padding: 5px;
   border-radius: 8px;
-  box-shadow: 1px 1px 3px 0px black;
-  border: 1px solid black;
+  box-shadow: 0 0 8px 1px grey;
+  /* border: 1px solid black; */
   width: 800px;
-  margin: 15px auto;
+  margin: 20px auto;
   background-color: rgb(255, 235, 165);
 }
 

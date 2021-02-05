@@ -20,15 +20,20 @@
   display: flex;
   justify-content: center;
   margin: 30px;
+  box-sizing: border-box;
 }
 
 .course-profile__group-1 {
   width: 450px;
   margin: 30px 40px;
+
+  background-color: ivory;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 12px 0 lightgray;
 }
 
 .course-profile__description {
-  width: 450px;
   font-size: 22px;
   line-height: 1.6em;
 }
@@ -47,5 +52,5 @@
   margin: 30px 40px;
   width: 500px;
   border-radius: 12px;
-  box-shadow: 0 0 12px 1px lightgray;
+  box-shadow: 0 0 12px 0 grey;
 }

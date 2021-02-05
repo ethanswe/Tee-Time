@@ -11,20 +11,6 @@
 .header-banner__button-link {
   visibility: hidden;
 }
-/* .user-profile-container {
-  display: grid;
-  grid-template-areas:
-    'profile stats play'
-    'name handicap button'
-    'email city .'
-    'age bio .';
-  grid-template-columns: 25% 25% 50%;
-  grid-template-rows: repeat(4, 100px);
-  justify-items: center;
-  padding: 10px;
-  width: 800px;
-  margin: 0 auto;
-} */
 
 .user-profile-container {
   display: flex;
@@ -119,21 +105,43 @@ h6 {
   padding: 8px 0;
 }
 
-.user-profile-info h2 {
+.user-profile-name h2 {
   font-weight: bold;
 }
 
-.user-profile-stats h2 {
+.user-profile-email h2 {
   font-weight: bold;
 }
 
-.user-profile-play h2 {
+.user-profile-bio h2 {
+  font-weight: bold;
+}
+
+.user-profile-handicap h2 {
+  font-weight: bold;
+}
+
+.user-profile-cityId h2 {
+  font-weight: bold;
+}
+
+.user-profile-age h2 {
   font-weight: bold;
 }
 
 .user-profile {
   display: flex;
   flex-direction: column;
+  border: 1px solid ivory;
+  border-radius: 15px;
+  background-color: ivory;
+  box-shadow: rgb(38, 57, 77) 0px 8px 30px -10px;
+  width: 900px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  margin-top: 30px;
 }
 
 .user-profile-button {
@@ -141,4 +149,20 @@ h6 {
   justify-content: center;
   align-items: flex-start;
   margin-bottom: 20px;
+}
+
+.profile {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.user-teetime-dashboard-header {
+  color: black;
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 40px;
+  font-size: 35px;
 }
