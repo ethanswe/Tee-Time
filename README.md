@@ -3,16 +3,13 @@
 TeeTime is a social media platform for golfers to offer the golf community the ability to find tee times available in their area. Users are able to see existing tee times and find golf courses in their area, as well as creating their own tee times for others to join.
 
 
-## How to start development environment
-To start the development environment, clone the git repository, npm install, npm start, and navigate to localhost:8080.
+## Getting Started
+- Getting started with TeeTime is easy! Just follow the live link: https://tee-time-aa.herokuapp.com/
 
 ## Technologies used
 JavaScript, Express, PostgreSQL w/ Sequelize, CSS, Pug
 
-## Our live site:
-https://tee-time-aa.herokuapp.com/
-
-## Our Wiki docs:
+## Wiki docs:
 https://github.com/ethanswe/Tee-Time/wiki
 
 ## Our two favorite features:
@@ -21,13 +18,13 @@ The user can either go to a course and create a tee time off of that course prof
 - Golf course profiles
 Each course has their own unique page to display their course information. All course profiles are linked to the back-end database so that a specific picture of that course automatically renders for the user. Users have the ability to create an event from each golf course's profile that will autofill the course information for their event. 
 
-## Roadblocks we had
+## Roadblocks
 - Delete functionality 
 - Update functionality
 - Generalized styling 
 - Autofilling course information when navigating from course profile to create an event 
 
-## Code snippets 
+## Code Snippets 
 
 ### Delete functionality
 ```
